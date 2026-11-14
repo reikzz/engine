@@ -1,0 +1,54 @@
+[
+    (
+        kind: Energy,
+        available_recipes: [],
+    ),
+    (
+        kind: Extraction,
+        available_recipes: [],
+    ),
+    (
+        kind: Agro,
+        available_recipes: [],
+    ),
+    (
+        kind: HeavyIndustry,
+        available_recipes: [],
+    ),
+    (
+        kind: Petrochemistry,
+        available_recipes: [],
+    ),
+    (
+        kind: Automotive,
+        available_recipes: [],
+    ),
+    (
+        kind: HighTech,
+        available_recipes: [],
+    ),
+    (
+        kind: Consumer,
+        available_recipes: [],
+    ),
+    (
+        kind: MilitaryComplex,
+        available_recipes: [],
+    ),
+    (
+        kind: Construction,
+        available_recipes: [],
+    ),
+    (
+        kind: Financial,
+        available_recipes: [],
+    ),
+    (
+        kind: InformationTechnology,
+        available_recipes: [],
+    ),
+    (
+        kind: RealEstate,
+        available_recipes: [],
+    ),
+]

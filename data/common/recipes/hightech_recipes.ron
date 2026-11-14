@@ -1,0 +1,87 @@
+[
+    (
+        key: "recipe_semiconductors",
+        sector: HighTech,
+        inputs: [
+            ("rare_earths", 2.0),
+            ("copper", 2.0),
+            ("electricity", 4.0),
+            ("industrial_machinery", 0.5),
+        ],
+        outputs: [
+            ("semiconductors", 3.0),
+        ],
+        base_expansion_cost: 200000.0,
+        workforce_requirements: [
+            ("workers", 20),
+            ("engineers", 20),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 1000.0),
+            ("steel", 250.0),
+        ],
+        construction_workforce: [
+            ("workers", 350),
+            ("engineers", 70),
+        ],
+        build_time_days: 75.0,
+        required_tech: Some("tech_advanced_semiconductors"),
+    ),
+    (
+        key: "recipe_industrial_machinery",
+        sector: HeavyIndustry,
+        inputs: [
+            ("steel", 4.0),
+            ("engines", 2.0),
+            ("electronic_components", 2.0),
+        ],
+        outputs: [
+            ("industrial_machinery", 5.0),
+        ],
+        base_expansion_cost: 180000.0,
+        workforce_requirements: [
+            ("workers", 40),
+            ("engineers", 12),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 1200.0),
+            ("steel", 300.0),
+        ],
+        construction_workforce: [
+            ("workers", 300),
+            ("engineers", 50),
+        ],
+        build_time_days: 60.0,
+        required_tech: Some("tech_heavy_machinery"),
+    ),
+    (
+        key: "recipe_pharmaceuticals",
+        sector: HighTech,
+        inputs: [
+            ("polymers", 2.0),
+            ("industrial_crops", 4.0),
+            ("electricity", 2.0),
+        ],
+        outputs: [
+            ("pharmaceuticals", 3.0),
+        ],
+        base_expansion_cost: 150000.0,
+        workforce_requirements: [
+            ("workers", 15),
+            ("professionals", 20),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 800.0),
+            ("steel", 150.0),
+        ],
+        construction_workforce: [
+            ("workers", 220),
+            ("engineers", 40),
+        ],
+        build_time_days: 60.0,
+        required_tech: Some("tech_pharmaceutical_synthesis"),
+    ),
+]

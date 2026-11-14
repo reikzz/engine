@@ -1,0 +1,76 @@
+[
+    (
+        key: "tech_heavy_metallurgy",
+        name: "Heavy Metallurgy",
+        cost: 1000.0,
+        prerequisites: [],
+    ),
+    (
+        key: "tech_petrochemical_refining",
+        name: "Petrochemical Refining",
+        cost: 2000.0,
+        prerequisites: [],
+    ),
+    (
+        key: "tech_combustion_engine",
+        name: "Internal Combustion Engine",
+        cost: 2000.0,
+        prerequisites: [
+            "tech_heavy_metallurgy",
+        ],
+    ),
+    (
+        key: "tech_heavy_machinery",
+        name: "Industrial Heavy Machinery",
+        cost: 3000.0,
+        prerequisites: [
+            "tech_combustion_engine",
+        ],
+    ),
+    (
+        key: "tech_automotive_industry",
+        name: "Automotive Industry",
+        cost: 4000.0,
+        prerequisites: [
+            "tech_combustion_engine",
+        ],
+    ),
+    (
+        key: "tech_basic_electronics",
+        name: "Basic Electronics",
+        cost: 2500.0,
+        prerequisites: [],
+    ),
+    (
+        key: "tech_pharmaceutical_synthesis",
+        name: "Pharmaceutical Synthesis",
+        cost: 5000.0,
+        prerequisites: [
+            "tech_petrochemical_refining",
+        ],
+    ),
+    (
+        key: "tech_microelectronics",
+        name: "Microelectronics & Computing",
+        cost: 6000.0,
+        prerequisites: [
+            "tech_basic_electronics",
+        ],
+    ),
+    (
+        key: "tech_telecommunications",
+        name: "Modern Telecommunications",
+        cost: 6000.0,
+        prerequisites: [
+            "tech_basic_electronics",
+        ],
+    ),
+    (
+        key: "tech_advanced_semiconductors",
+        name: "Advanced Semiconductor Fabrication",
+        cost: 12000.0,
+        prerequisites: [
+            "tech_microelectronics",
+        ],
+    ),
+]

@@ -1,0 +1,56 @@
+mod banking;
+mod bankruptcy;
+mod company;
+mod delivery;
+pub mod digital_economy;
+mod employment;
+mod global_trade;
+mod investment;
+mod market;
+mod market_distribution;
+mod payroll;
+mod pop_needs;
+mod production;
+mod real_estate;
+mod settlement;
+mod tax;
+mod wage;
+
+use crate::economy::systems::company::CompanySystem;
+pub use crate::economy::systems::digital_economy::DigitalEconomySystem;
+use crate::economy::systems::employment::EmploymentSystem;
+use crate::economy::systems::investment::InvestmentSystem;
+use crate::economy::systems::market::MarketSystem;
+use crate::economy::systems::market_distribution::MarketDistribution;
+use crate::economy::systems::payroll::PayrollSystem;
+use crate::economy::systems::pop_needs::PopNeedsSystem;
+use crate::economy::systems::settlement::SettlementSystem;
+use crate::system::SystemPipeline;
+pub use banking::BankingSystem;
+pub use bankruptcy::BankruptcySystem;
+pub use delivery::DeliverySystem;
+pub use global_trade::GlobalTradeSystem;
+pub use production::ProductionSystem;
+pub use real_estate::RealEstateSystem;
+pub use tax::{TaxReport, TaxSystem};
+pub use wage::WageSystem;
+
+pub fn register_systems(pipeline: &mut SystemPipeline) {
+    pipeline.add_system(DeliverySystem::default());
+    pipeline.add_system(EmploymentSystem::default());
+    pipeline.add_system(ProductionSystem::default());
+    pipeline.add_system(MarketDistribution::default());
+    pipeline.add_system(PopNeedsSystem::default());
+    pipeline.add_system(MarketSystem::default());
+    pipeline.add_system(SettlementSystem::default());
+    pipeline.add_system(GlobalTradeSystem::default());
+    pipeline.add_system(PayrollSystem::default());
+    pipeline.add_system(CompanySystem::default());
+    pipeline.add_system(WageSystem::default());
+    pipeline.add_system(TaxSystem::default());
+    pipeline.add_system(InvestmentSystem);
+    pipeline.add_system(BankingSystem::default());
+    pipeline.add_system(RealEstateSystem::default());
+    pipeline.add_system(DigitalEconomySystem::default());
+    pipeline.add_system(BankruptcySystem::default());
+}

@@ -1,0 +1,202 @@
+import { Theme } from "theme.slint";
+
+export component ChassisFrame inherits Rectangle {
+    in property <bool> is_accented: false;
+    in property <color> frame_accent: Theme.accent_gold;
+
+    background: @linear-gradient(180deg, Theme.chassis_panel_top 0%, Theme.chassis_panel_bottom 100%);
+    border-width: 1px;
+    border-color: is_accented ? frame_accent : Theme.border_outer;
+
+    Rectangle {
+        x: 1px;
+        y: 1px;
+        width: parent.width - 2px;
+        height: parent.height - 2px;
+        border-width: 1px;
+        border-color: is_accented ? frame_accent.transparentize(0.7) : Theme.border_inner;
+        background: #00000000;
+    }
+
+    Rectangle {
+        x: 0px;
+        y: 0px;
+        width: 6px;
+        height: 2px;
+        background: is_accented ? frame_accent : Theme.accent_amber;
+    }
+
+    Rectangle {
+        x: 0px;
+        y: 0px;
+        width: 2px;
+        height: 6px;
+        background: is_accented ? frame_accent : Theme.accent_amber;
+    }
+
+    Rectangle {
+        x: parent.width - 6px;
+        y: 0px;
+        width: 6px;
+        height: 2px;
+        background: is_accented ? frame_accent : Theme.accent_amber;
+    }
+
+    Rectangle {
+        x: parent.width - 2px;
+        y: 0px;
+        width: 2px;
+        height: 6px;
+        background: is_accented ? frame_accent : Theme.accent_amber;
+    }
+
+    Rectangle {
+        x: 0px;
+        y: parent.height - 2px;
+        width: 6px;
+        height: 2px;
+        background: is_accented ? frame_accent : Theme.accent_amber;
+    }
+
+    Rectangle {
+        x: 0px;
+        y: parent.height - 6px;
+        width: 2px;
+        height: 6px;
+        background: is_accented ? frame_accent : Theme.accent_amber;
+    }
+
+    Rectangle {
+        x: parent.width - 6px;
+        y: parent.height - 2px;
+        width: 6px;
+        height: 2px;
+        background: is_accented ? frame_accent : Theme.accent_amber;
+    }
+
+    Rectangle {
+        x: parent.width - 2px;
+        y: parent.height - 6px;
+        width: 2px;
+        height: 6px;
+        background: is_accented ? frame_accent : Theme.accent_amber;
+    }
+
+    @children
+}
+
+export component TacticalButton inherits Rectangle {
+    in property <string> text: "ACTION";
+    in property <bool> is_active: false;
+    in property <bool> is_danger: false;
+    in property <bool> is_accent: false;
+    callback clicked;
+
+    height: 30px;
+    background: is_active ? Theme.surface_active : (touch.has_hover ? Theme.surface_card_hover : Theme.surface_card);
+    border-width: 1px;
+    border-color: is_active 
+        ? Theme.accent_gold 
+        : (touch.has_hover 
+            ? (is_danger ? Theme.accent_crimson : (is_accent ? Theme.accent_gold : Theme.accent_cyan)) 
+            : Theme.border_outer);
+
+    touch := TouchArea {
+        clicked => { root.clicked(); }
+    }
+
+    Rectangle {
+        x: 1px;
+        y: 1px;
+        width: parent.width - 2px;
+        height: parent.height - 2px;
+        border-width: 1px;
+        border-color: touch.has_hover ? Theme.border_inner : #00000000;
+        background: #00000000;
+    }
+
+    if root.is_active : Rectangle {
+        x: 0px;
+        y: 0px;
+        width: 3px;
+        height: parent.height;
+        background: Theme.accent_gold;
+    }
+
+    Text {
+        text: root.text;
+        color: root.is_danger 
+            ? Theme.accent_crimson 
+            : (root.is_active 
+                ? Theme.text_gold 
+                : (touch.has_hover ? Theme.text_primary : Theme.text_secondary));
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+}
+
+export component SegmentedGauge inherits Rectangle {
+    in property <float> value: 0.5;
+    in property <int> segments: 10;
+    in property <color> fill_color: Theme.accent_gold;
+
+    height: 10px;
+    background: Theme.surface_inset;
+    border-width: 1px;
+    border-color: Theme.border_outer;
+
+    HorizontalLayout {
+        padding: 1px;
+        spacing: 2px;
+
+        for i in root.segments : Rectangle {
+            background: (i < Math.round(root.value * root.segments)) ? root.fill_color : Theme.border_divider;
+        }
+    }
+}
+
+export component SectionHeader inherits Rectangle {
+    in property <string> title: "SECTION";
+    in property <string> code: "SYS-01";
+    in property <color> badge_color: Theme.accent_cyan;
+
+    height: 24px;
+    background: #00000000;
+
+    HorizontalLayout {
+        spacing: 8px;
+        alignment: center;
+
+        Rectangle {
+            width: 4px;
+            height: 14px;
+            background: root.badge_color;
+        }
+
+        Text {
+            text: root.title;
+            color: Theme.text_primary;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            vertical-alignment: center;
+        }
+
+        Rectangle {
+            horizontal-stretch: 1;
+            height: 1px;
+            background: @linear-gradient(90deg, Theme.border_inner 0%, #00000000 100%);
+        }
+
+        Text {
+            text: root.code;
+            color: root.badge_color;
+            font-size: 9px;
+            font-weight: 700;
+            vertical-alignment: center;
+        }
+    }
+}

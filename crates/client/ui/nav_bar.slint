@@ -1,0 +1,228 @@
+import { Theme } from "theme.slint";
+
+component DropdownItem inherits Rectangle {
+    in property <string> label;
+    in property <bool> is_active: false;
+    callback clicked;
+
+    height: 28px;
+    background: is_active ? Theme.surface_active : (touch.has_hover ? Theme.surface_card_hover : #00000000);
+
+    touch := TouchArea {
+        clicked => { root.clicked(); }
+    }
+
+    if root.is_active : Rectangle {
+        x: 0px;
+        width: 3px;
+        height: parent.height;
+        background: Theme.accent_gold;
+    }
+
+    HorizontalLayout {
+        padding-left: 10px;
+        padding-right: 10px;
+        alignment: start;
+
+        Text {
+            text: root.label;
+            color: is_active ? Theme.text_gold : (touch.has_hover ? Theme.text_primary : Theme.text_secondary);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            vertical-alignment: center;
+        }
+    }
+}
+
+export component TopNavBar inherits Rectangle {
+    in-out property <bool> market_menu_open: false;
+    in-out property <int> active_market_mode: 0;
+    in-out property <bool> companies_open: false;
+    in-out property <bool> tech_open: false;
+
+    callback local_market_selected();
+    callback global_market_selected();
+    callback companies_toggle();
+    callback tech_toggle();
+
+    width: 380px;
+    height: root.market_menu_open ? 104px : 32px;
+    background: #00000000;
+
+    HorizontalLayout {
+        x: 0px;
+        y: 0px;
+        height: 32px;
+        spacing: 6px;
+        alignment: start;
+
+        market_btn := Rectangle {
+            height: 30px;
+            background: root.market_menu_open || root.active_market_mode > 0 ? Theme.surface_active : (market_touch.has_hover ? Theme.surface_card_hover : Theme.surface_card);
+            border-width: 1px;
+            border-color: root.market_menu_open || root.active_market_mode > 0 ? Theme.accent_gold : (market_touch.has_hover ? Theme.border_inner : Theme.border_outer);
+
+            market_touch := TouchArea {
+                clicked => {
+                    root.market_menu_open = !root.market_menu_open;
+                }
+            }
+
+            HorizontalLayout {
+                padding-left: 12px;
+                padding-right: 12px;
+                spacing: 6px;
+                alignment: center;
+
+                Rectangle {
+                    width: 4px;
+                    height: 4px;
+                    background: Theme.accent_gold;
+                }
+
+                Text {
+                    text: "COMMODITY MARKETS ▾";
+                    color: root.market_menu_open ? Theme.text_gold : (market_touch.has_hover ? Theme.text_primary : Theme.text_secondary);
+                    font-size: 10px;
+                    font-weight: 800;
+                    letter-spacing: 0.5px;
+                    vertical-alignment: center;
+                }
+            }
+
+            if root.market_menu_open : Rectangle {
+                y: parent.height - 2px;
+                height: 2px;
+                background: Theme.accent_gold;
+            }
+        }
+
+        companies_btn := Rectangle {
+            height: 30px;
+            background: root.companies_open ? Theme.surface_active : (companies_touch.has_hover ? Theme.surface_card_hover : Theme.surface_card);
+            border-width: 1px;
+            border-color: root.companies_open ? Theme.accent_gold : (companies_touch.has_hover ? Theme.border_inner : Theme.border_outer);
+
+            companies_touch := TouchArea {
+                clicked => {
+                    root.companies_toggle();
+                }
+            }
+
+            HorizontalLayout {
+                padding-left: 12px;
+                padding-right: 12px;
+                spacing: 6px;
+                alignment: center;
+
+                Rectangle {
+                    width: 4px;
+                    height: 4px;
+                    background: Theme.accent_amber;
+                }
+
+                Text {
+                    text: "CORPORATIONS";
+                    color: root.companies_open ? Theme.text_gold : (companies_touch.has_hover ? Theme.text_primary : Theme.text_secondary);
+                    font-size: 10px;
+                    font-weight: 800;
+                    letter-spacing: 0.5px;
+                    vertical-alignment: center;
+                }
+            }
+
+            if root.companies_open : Rectangle {
+                y: parent.height - 2px;
+                height: 2px;
+                background: Theme.accent_gold;
+            }
+        }
+
+        tech_btn := Rectangle {
+            height: 30px;
+            background: root.tech_open ? Theme.surface_active : (tech_touch.has_hover ? Theme.surface_card_hover : Theme.surface_card);
+            border-width: 1px;
+            border-color: root.tech_open ? Theme.accent_cyan : (tech_touch.has_hover ? Theme.border_inner : Theme.border_outer);
+
+            tech_touch := TouchArea {
+                clicked => {
+                    root.tech_toggle();
+                }
+            }
+
+            HorizontalLayout {
+                padding-left: 12px;
+                padding-right: 12px;
+                spacing: 6px;
+                alignment: center;
+
+                Rectangle {
+                    width: 4px;
+                    height: 4px;
+                    background: Theme.accent_cyan;
+                }
+
+                Text {
+                    text: "R&D MATRIX";
+                    color: root.tech_open ? Theme.text_cyan : (tech_touch.has_hover ? Theme.text_primary : Theme.text_secondary);
+                    font-size: 10px;
+                    font-weight: 800;
+                    letter-spacing: 0.5px;
+                    vertical-alignment: center;
+                }
+            }
+
+            if root.tech_open : Rectangle {
+                y: parent.height - 2px;
+                height: 2px;
+                background: Theme.accent_cyan;
+            }
+        }
+    }
+
+    if root.market_menu_open : Rectangle {
+        x: 0px;
+        y: 36px;
+        width: 170px;
+        height: 64px;
+        background: @linear-gradient(180deg, Theme.chassis_panel_top 0%, Theme.chassis_panel_bottom 100%);
+        border-width: 1px;
+        border-color: Theme.border_outer;
+
+        Rectangle {
+            x: 1px;
+            y: 1px;
+            width: parent.width - 2px;
+            height: parent.height - 2px;
+            border-width: 1px;
+            border-color: Theme.border_inner;
+            background: #00000000;
+        }
+
+        VerticalLayout {
+            padding: 4px;
+            spacing: 2px;
+
+            DropdownItem {
+                label: "DOMESTIC MARKET";
+                is_active: root.active_market_mode == 1;
+                clicked => {
+                    root.active_market_mode = 1;
+                    root.market_menu_open = false;
+                    root.local_market_selected();
+                }
+            }
+
+            DropdownItem {
+                label: "GLOBAL EXCHANGE";
+                is_active: root.active_market_mode == 2;
+                clicked => {
+                    root.active_market_mode = 2;
+                    root.market_menu_open = false;
+                    root.global_market_selected();
+                }
+            }
+        }
+    }
+}

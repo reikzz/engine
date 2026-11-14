@@ -1,0 +1,428 @@
+import { Theme } from "theme.slint";
+import { ChassisFrame, TacticalButton, SegmentedGauge, SectionHeader } from "tactical_widgets.slint";
+
+export struct LocalFacilityItem {
+    name: string,
+    sector: string,
+    workforce_text: string,
+    output_text: string,
+}
+
+export component RegionPanel inherits ChassisFrame {
+    in property <string> region_name: "Northern Region";
+    in property <int> region_id: 1;
+    in property <string> country_tag: "USA";
+    in property <string> terrain_type: "Plains";
+    in property <string> population_text: "1,450,000";
+    in property <string> employment_text: "1,220,000 (84.1%)";
+    in property <float> employment_ratio: 0.84;
+    in property <float> satisfaction_ratio: 0.72;
+    in property <float> radicalism_ratio: 0.12;
+    in property <string> infra_level_text: "Level 3";
+    in property <string> infra_capacity_text: "450 / 600";
+    in property <float> infra_utilization: 0.75;
+    in property <float> market_access_ratio: 0.94;
+    in property <string> market_access_text: "94.0%";
+    in property <string> avg_price_text: "$24.50";
+    in property <[LocalFacilityItem]> facilities: [];
+    in property <int> active_tab: 0;
+
+    callback close_clicked();
+    callback tab_selected(int);
+    callback commission_clicked();
+    callback upgrade_infra_clicked();
+
+    width: 380px;
+    height: 600px;
+
+    VerticalLayout {
+        padding: 12px;
+        spacing: 10px;
+
+        HorizontalLayout {
+            height: 36px;
+            alignment: center;
+            spacing: 8px;
+
+            Rectangle {
+                width: 4px;
+                height: 28px;
+                background: Theme.accent_gold;
+            }
+
+            VerticalLayout {
+                horizontal-stretch: 1;
+                alignment: center;
+
+                HorizontalLayout {
+                    spacing: 6px;
+
+                    Text {
+                        text: root.region_name;
+                        color: Theme.text_primary;
+                        font-size: 15px;
+                        font-weight: 800;
+                        letter-spacing: 0.5px;
+                    }
+
+                    Rectangle {
+                        border-radius: Theme.radius_sharp;
+                        background: Theme.surface_active;
+                        border-width: 1px;
+                        border-color: Theme.accent_amber;
+                        height: 16px;
+                        width: 38px;
+
+                        Text {
+                            text: root.country_tag;
+                            color: Theme.text_amber;
+                            font-size: 9px;
+                            font-weight: 800;
+                            horizontal-alignment: center;
+                            vertical-alignment: center;
+                        }
+                    }
+                }
+
+                Text {
+                    text: "REGION ID: #" + root.region_id + " // TERRAIN: " + root.terrain_type;
+                    color: Theme.text_muted;
+                    font-size: 9px;
+                    font-weight: 700;
+                }
+            }
+
+            TacticalButton {
+                width: 32px;
+                height: 28px;
+                text: "✕";
+                is_danger: true;
+                clicked => { root.close_clicked(); }
+            }
+        }
+
+        HorizontalLayout {
+            height: 28px;
+            spacing: 4px;
+
+            TacticalButton {
+                horizontal-stretch: 1;
+                height: 28px;
+                text: "DEMO & MARKET";
+                is_active: root.active_tab == 0;
+                clicked => { root.tab_selected(0); }
+            }
+
+            TacticalButton {
+                horizontal-stretch: 1;
+                height: 28px;
+                text: "INFRASTRUCTURE";
+                is_active: root.active_tab == 1;
+                clicked => { root.tab_selected(1); }
+            }
+
+            TacticalButton {
+                horizontal-stretch: 1;
+                height: 28px;
+                text: "PRODUCTION";
+                is_active: root.active_tab == 2;
+                clicked => { root.tab_selected(2); }
+            }
+        }
+
+        Rectangle {
+            height: 1px;
+            background: Theme.border_inner;
+        }
+
+        if root.active_tab == 0 : VerticalLayout {
+            spacing: 8px;
+
+            SectionHeader {
+                title: "POPULATION METRICS";
+                code: "POP-01";
+                badge_color: Theme.accent_gold;
+            }
+
+            Rectangle {
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                VerticalLayout {
+                    padding: 10px;
+                    spacing: 6px;
+
+                    HorizontalLayout {
+                        Text {
+                            text: "TOTAL RESIDENTS";
+                            color: Theme.text_muted;
+                            font-size: 10px;
+                            font-weight: 700;
+                            horizontal-stretch: 1;
+                        }
+                        Text {
+                            text: root.population_text;
+                            color: Theme.text_primary;
+                            font-size: 12px;
+                            font-weight: 800;
+                        }
+                    }
+
+                    HorizontalLayout {
+                        Text {
+                            text: "EMPLOYED WORKFORCE";
+                            color: Theme.text_muted;
+                            font-size: 10px;
+                            font-weight: 700;
+                            horizontal-stretch: 1;
+                        }
+                        Text {
+                            text: root.employment_text;
+                            color: Theme.accent_emerald;
+                            font-size: 11px;
+                            font-weight: 700;
+                        }
+                    }
+
+                    SegmentedGauge {
+                        value: root.employment_ratio;
+                        segments: 14;
+                        fill_color: Theme.accent_emerald;
+                    }
+                }
+            }
+
+            SectionHeader {
+                title: "POPULATION STABILITY";
+                code: "SOC-02";
+                badge_color: Theme.accent_cyan;
+            }
+
+            Rectangle {
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                VerticalLayout {
+                    padding: 10px;
+                    spacing: 8px;
+
+                    HorizontalLayout {
+                        Text {
+                            text: "SATISFACTION LEVEL";
+                            color: Theme.text_muted;
+                            font-size: 10px;
+                            font-weight: 700;
+                            horizontal-stretch: 1;
+                        }
+                        Text {
+                            text: Math.round(root.satisfaction_ratio * 100) + "%";
+                            color: Theme.accent_cyan_bright;
+                            font-size: 11px;
+                            font-weight: 700;
+                        }
+                    }
+
+                    SegmentedGauge {
+                        value: root.satisfaction_ratio;
+                        segments: 14;
+                        fill_color: Theme.accent_cyan;
+                    }
+
+                    HorizontalLayout {
+                        Text {
+                            text: "RADICALISM & UNREST";
+                            color: Theme.text_muted;
+                            font-size: 10px;
+                            font-weight: 700;
+                            horizontal-stretch: 1;
+                        }
+                        Text {
+                            text: Math.round(root.radicalism_ratio * 100) + "%";
+                            color: root.radicalism_ratio > 0.3 ? Theme.accent_crimson : Theme.text_secondary;
+                            font-size: 11px;
+                            font-weight: 700;
+                        }
+                    }
+
+                    SegmentedGauge {
+                        value: root.radicalism_ratio;
+                        segments: 14;
+                        fill_color: Theme.accent_crimson;
+                    }
+                }
+            }
+
+            SectionHeader {
+                title: "LOCAL COMMODITY BASKET";
+                code: "MKT-03";
+                badge_color: Theme.accent_amber;
+            }
+
+            Rectangle {
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                HorizontalLayout {
+                    padding: 10px;
+
+                    Text {
+                        text: "WEIGHTED AVERAGE PRICE";
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 700;
+                        horizontal-stretch: 1;
+                    }
+                    Text {
+                        text: root.avg_price_text;
+                        color: Theme.text_amber;
+                        font-size: 12px;
+                        font-weight: 800;
+                    }
+                }
+            }
+        }
+
+        if root.active_tab == 1 : VerticalLayout {
+            spacing: 8px;
+
+            SectionHeader {
+                title: "LOGISTICS NETWORK";
+                code: "LOG-01";
+                badge_color: Theme.accent_cyan;
+            }
+
+            Rectangle {
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                VerticalLayout {
+                    padding: 10px;
+                    spacing: 8px;
+
+                    HorizontalLayout {
+                        Text {
+                            text: "INFRASTRUCTURE CAPACITY";
+                            color: Theme.text_muted;
+                            font-size: 10px;
+                            font-weight: 700;
+                            horizontal-stretch: 1;
+                        }
+                        Text {
+                            text: root.infra_capacity_text;
+                            color: Theme.text_primary;
+                            font-size: 12px;
+                            font-weight: 800;
+                        }
+                    }
+
+                    SegmentedGauge {
+                        value: root.infra_utilization;
+                        segments: 16;
+                        fill_color: root.infra_utilization > 0.85 ? Theme.accent_crimson : Theme.accent_cyan;
+                    }
+
+                    HorizontalLayout {
+                        Text {
+                            text: "MARKET ACCESS INDEX";
+                            color: Theme.text_muted;
+                            font-size: 10px;
+                            font-weight: 700;
+                            horizontal-stretch: 1;
+                        }
+                        Text {
+                            text: root.market_access_text;
+                            color: Theme.accent_emerald;
+                            font-size: 12px;
+                            font-weight: 800;
+                        }
+                    }
+
+                    SegmentedGauge {
+                        value: root.market_access_ratio;
+                        segments: 16;
+                        fill_color: Theme.accent_emerald;
+                    }
+                }
+            }
+
+            TacticalButton {
+                text: "UPGRADE INFRASTRUCTURE NETWORK";
+                is_accent: true;
+                clicked => { root.upgrade_infra_clicked(); }
+            }
+        }
+
+        if root.active_tab == 2 : VerticalLayout {
+            spacing: 8px;
+            vertical-stretch: 1;
+
+            SectionHeader {
+                title: "OPERATING ENTERPRISES";
+                code: "IND-01";
+                badge_color: Theme.accent_gold;
+            }
+
+            Flickable {
+                content-height: root.facilities.length * 58px;
+
+                VerticalLayout {
+                    spacing: 4px;
+
+                    for facility in root.facilities : Rectangle {
+                        height: 54px;
+                        background: Theme.surface_card;
+                        border-width: 1px;
+                        border-color: Theme.border_outer;
+
+                        VerticalLayout {
+                            padding: 6px;
+                            spacing: 2px;
+
+                            HorizontalLayout {
+                                Text {
+                                    text: facility.name;
+                                    color: Theme.text_primary;
+                                    font-size: 11px;
+                                    font-weight: 700;
+                                    horizontal-stretch: 1;
+                                }
+                                Text {
+                                    text: facility.sector;
+                                    color: Theme.text_gold;
+                                    font-size: 9px;
+                                    font-weight: 700;
+                                }
+                            }
+
+                            HorizontalLayout {
+                                Text {
+                                    text: "WORKERS: " + facility.workforce_text;
+                                    color: Theme.text_muted;
+                                    font-size: 9px;
+                                    horizontal-stretch: 1;
+                                }
+                                Text {
+                                    text: facility.output_text;
+                                    color: Theme.accent_emerald;
+                                    font-size: 9px;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            TacticalButton {
+                height: 38px;
+                text: "COMMISSION NEW INDUSTRIAL FACILITY";
+                is_active: true;
+                clicked => { root.commission_clicked(); }
+            }
+        }
+    }
+}

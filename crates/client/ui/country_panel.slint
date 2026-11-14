@@ -1,0 +1,177 @@
+import { Theme } from "theme.slint";
+import { ChassisFrame, SectionHeader, TacticalButton } from "tactical_widgets.slint";
+
+component PanelStatRow inherits HorizontalLayout {
+    in property <string> label;
+    in property <string> value;
+    in property <color> value_color: Theme.text_primary;
+
+    height: 22px;
+    alignment: space-between;
+
+    Text {
+        text: root.label;
+        color: Theme.text_muted;
+        font-size: 10px;
+        font-weight: 700;
+        vertical-alignment: center;
+    }
+
+    Text {
+        text: root.value;
+        color: root.value_color;
+        font-size: 11px;
+        font-weight: 800;
+        vertical-alignment: center;
+    }
+}
+
+export component CountryPanel inherits ChassisFrame {
+    in property <string> country_name: "United States";
+    in property <string> country_tag: "USA";
+    in property <string> gdp_text: "$0";
+    in property <string> treasury_text: "$0";
+    in property <string> debt_text: "$0";
+    in property <string> population_text: "0";
+    in property <string> employment_text: "0";
+    in property <string> regions_count_text: "0";
+
+    callback close_clicked();
+
+    width: 320px;
+    height: 310px;
+
+    VerticalLayout {
+        padding: 12px;
+        spacing: 10px;
+
+        HorizontalLayout {
+            alignment: space-between;
+
+            HorizontalLayout {
+                spacing: 8px;
+                alignment: start;
+
+                Rectangle {
+                    height: 24px;
+                    background: Theme.surface_inset;
+                    border-width: 1px;
+                    border-color: Theme.accent_gold;
+
+                    HorizontalLayout {
+                        padding-left: 6px;
+                        padding-right: 6px;
+
+                        Text {
+                            text: root.country_tag;
+                            color: Theme.text_gold;
+                            font-size: 10px;
+                            font-weight: 800;
+                            vertical-alignment: center;
+                        }
+                    }
+                }
+
+                Text {
+                    text: root.country_name;
+                    color: Theme.text_primary;
+                    font-size: 13px;
+                    font-weight: 800;
+                    letter-spacing: 0.5px;
+                    vertical-alignment: center;
+                }
+            }
+
+            TacticalButton {
+                width: 26px;
+                height: 24px;
+                text: "✕";
+                is_danger: true;
+                clicked => { root.close_clicked(); }
+            }
+        }
+
+        Rectangle {
+            height: 1px;
+            background: Theme.border_inner;
+        }
+
+        VerticalLayout {
+            spacing: 6px;
+
+            SectionHeader {
+                title: "SOVEREIGN BALANCE SHEET";
+                code: "ECO-01";
+                badge_color: Theme.accent_gold;
+            }
+
+            Rectangle {
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                VerticalLayout {
+                    padding: 8px;
+                    spacing: 4px;
+
+                    PanelStatRow {
+                        label: "NOMINAL GDP";
+                        value: root.gdp_text;
+                        value_color: Theme.text_cyan;
+                    }
+
+                    PanelStatRow {
+                        label: "TREASURY RESERVES";
+                        value: root.treasury_text;
+                        value_color: Theme.accent_emerald;
+                    }
+
+                    PanelStatRow {
+                        label: "NATIONAL DEBT";
+                        value: root.debt_text;
+                        value_color: Theme.accent_crimson;
+                    }
+                }
+            }
+        }
+
+        VerticalLayout {
+            spacing: 6px;
+
+            SectionHeader {
+                title: "DEMOGRAPHIC COMPOSITION";
+                code: "DEM-01";
+                badge_color: Theme.accent_cyan;
+            }
+
+            Rectangle {
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                VerticalLayout {
+                    padding: 8px;
+                    spacing: 4px;
+
+                    PanelStatRow {
+                        label: "CITIZEN CENSUS";
+                        value: root.population_text;
+                        value_color: Theme.text_primary;
+                    }
+
+                    PanelStatRow {
+                        label: "ACTIVE WORKFORCE";
+                        value: root.employment_text;
+                        value_color: Theme.text_secondary;
+                    }
+
+                    PanelStatRow {
+                        label: "PROVINCIAL REGIONS";
+                        value: root.regions_count_text;
+                        value_color: Theme.text_gold;
+                    }
+                }
+            }
+        }
+    }
+}

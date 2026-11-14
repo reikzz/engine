@@ -1,0 +1,222 @@
+import { Theme } from "theme.slint";
+import { ChassisFrame, TacticalButton, SectionHeader } from "tactical_widgets.slint";
+
+export struct ResourcePriceItem {
+    name: string,
+    price_text: string,
+    base_price_text: string,
+    supply_text: string,
+    demand_text: string,
+    volume_text: string,
+}
+
+export component MarketModal inherits Rectangle {
+    in property <bool> is_global: false;
+    in property <string> country_name: "United States";
+    in property <string> currency_symbol: "$";
+    in property <[ResourcePriceItem]> items: [];
+
+    callback close_clicked();
+    callback tab_changed(bool);
+
+    background: #000000a0;
+
+    TouchArea {
+        clicked => {}
+    }
+
+    ChassisFrame {
+        width: 640px;
+        height: 460px;
+        x: (parent.width - self.width) / 2;
+        y: (parent.height - self.height) / 2;
+        is_accented: true;
+
+        VerticalLayout {
+            padding: 14px;
+            spacing: 10px;
+
+            HorizontalLayout {
+                height: 34px;
+                alignment: space-between;
+
+                HorizontalLayout {
+                    spacing: 12px;
+                    alignment: start;
+
+                    Rectangle {
+                        width: 4px;
+                        height: 24px;
+                        background: Theme.accent_gold;
+                    }
+
+                    Text {
+                        text: root.is_global ? "GLOBAL COMMODITY EXCHANGE // SPOT PRICES" : "DOMESTIC COMMODITY MARKET // " + root.country_name;
+                        color: Theme.text_primary;
+                        font-size: 13px;
+                        font-weight: 800;
+                        letter-spacing: 0.5px;
+                        vertical-alignment: center;
+                    }
+
+                    HorizontalLayout {
+                        spacing: 4px;
+                        alignment: center;
+
+                        TacticalButton {
+                            width: 90px;
+                            height: 26px;
+                            text: "DOMESTIC";
+                            is_active: !root.is_global;
+                            clicked => { root.tab_changed(false); }
+                        }
+
+                        TacticalButton {
+                            width: 90px;
+                            height: 26px;
+                            text: "GLOBAL";
+                            is_active: root.is_global;
+                            clicked => { root.tab_changed(true); }
+                        }
+                    }
+                }
+
+                TacticalButton {
+                    width: 28px;
+                    height: 26px;
+                    text: "✕";
+                    is_danger: true;
+                    clicked => { root.close_clicked(); }
+                }
+            }
+
+            Rectangle {
+                height: 1px;
+                background: Theme.border_inner;
+            }
+
+            Rectangle {
+                height: 26px;
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                HorizontalLayout {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    alignment: space-between;
+
+                    Text {
+                        text: "RESOURCE KEY";
+                        width: root.is_global ? 220px : 150px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    Text {
+                        text: root.is_global ? "INDEX PRICE" : "LOCAL PRICE";
+                        width: root.is_global ? 160px : 85px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    if !root.is_global : Text {
+                        text: "BASE";
+                        width: 85px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    if !root.is_global : Text {
+                        text: "DEMAND";
+                        width: 90px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    Text {
+                        text: root.is_global ? "DAILY VOLUME" : "SUPPLY";
+                        width: root.is_global ? 160px : 90px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+
+            Flickable {
+                content-height: root.items.length * 32px;
+
+                VerticalLayout {
+                    spacing: 2px;
+
+                    for item in root.items: Rectangle {
+                        height: 30px;
+                        background: Theme.surface_card;
+                        border-width: 1px;
+                        border-color: Theme.border_outer;
+
+                        HorizontalLayout {
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            alignment: space-between;
+
+                            Text {
+                                text: item.name;
+                                width: root.is_global ? 220px : 150px;
+                                color: Theme.text_primary;
+                                font-size: 11px;
+                                font-weight: 700;
+                                vertical-alignment: center;
+                            }
+
+                            Text {
+                                text: item.price_text;
+                                width: root.is_global ? 160px : 85px;
+                                color: Theme.text_cyan;
+                                font-size: 11px;
+                                font-weight: 800;
+                                vertical-alignment: center;
+                            }
+
+                            if !root.is_global : Text {
+                                text: item.base_price_text;
+                                width: 85px;
+                                color: Theme.text_muted;
+                                font-size: 11px;
+                                vertical-alignment: center;
+                            }
+
+                            if !root.is_global : Text {
+                                text: item.demand_text;
+                                width: 90px;
+                                color: Theme.accent_crimson;
+                                font-size: 11px;
+                                font-weight: 700;
+                                vertical-alignment: center;
+                            }
+
+                            Text {
+                                text: root.is_global ? item.volume_text : item.supply_text;
+                                width: root.is_global ? 160px : 90px;
+                                color: Theme.accent_emerald;
+                                font-size: 11px;
+                                font-weight: 700;
+                                vertical-alignment: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

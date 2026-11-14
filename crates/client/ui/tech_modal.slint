@@ -1,0 +1,305 @@
+import { Theme } from "theme.slint";
+import { ChassisFrame, TacticalButton, SegmentedGauge, SectionHeader } from "tactical_widgets.slint";
+
+export struct TechTreeItem {
+    id: int,
+    key: string,
+    name: string,
+    category: string,
+    cost_points: int,
+    progress_ratio: float,
+    status: string,
+    is_active_research: bool,
+    is_completed: bool,
+    can_research: bool,
+    unlocks_summary: string,
+}
+
+export component TechModal inherits Rectangle {
+    in property <string> active_tech_name: "NONE";
+    in property <string> active_tech_category: "NONE";
+    in property <float> active_tech_progress: 0.0;
+    in property <string> active_tech_progress_text: "0%";
+    in property <bool> has_active_research: false;
+    in property <[TechTreeItem]> tech_items: [];
+    in property <int> active_category_filter: 0;
+
+    callback close_clicked();
+    callback category_selected(int);
+    callback select_tech(int);
+
+    background: #000000c0;
+
+    TouchArea {
+        clicked => {}
+    }
+
+    ChassisFrame {
+        width: 860px;
+        height: 600px;
+        x: (parent.width - self.width) / 2;
+        y: (parent.height - self.height) / 2;
+        is_accented: true;
+        frame_accent: Theme.accent_cyan;
+
+        VerticalLayout {
+            padding: 16px;
+            spacing: 12px;
+
+            HorizontalLayout {
+                height: 38px;
+                alignment: center;
+                spacing: 12px;
+
+                Rectangle {
+                    width: 4px;
+                    height: 28px;
+                    background: Theme.accent_cyan;
+                }
+
+                VerticalLayout {
+                    horizontal-stretch: 1;
+                    alignment: center;
+
+                    Text {
+                        text: "MINISTRY OF SCIENCE & TECHNOLOGY // INNOVATION MATRIX";
+                        color: Theme.text_primary;
+                        font-size: 14px;
+                        font-weight: 800;
+                        letter-spacing: 1px;
+                    }
+
+                    Text {
+                        text: "NATIONAL R&D DIRECTIVE // TECHNOLOGICAL SOVEREIGNTY";
+                        color: Theme.text_cyan;
+                        font-size: 10px;
+                        font-weight: 700;
+                    }
+                }
+
+                TacticalButton {
+                    width: 32px;
+                    height: 30px;
+                    text: "✕";
+                    is_danger: true;
+                    clicked => { root.close_clicked(); }
+                }
+            }
+
+            Rectangle {
+                height: 72px;
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                VerticalLayout {
+                    padding: 10px;
+                    spacing: 6px;
+
+                    HorizontalLayout {
+                        Text {
+                            text: "ACTIVE RESEARCH PROJECT:";
+                            color: Theme.text_muted;
+                            font-size: 10px;
+                            font-weight: 700;
+                        }
+
+                        Text {
+                            text: root.has_active_research ? root.active_tech_name : "NO PROJECT SELECTED";
+                            color: root.has_active_research ? Theme.text_cyan : Theme.text_muted;
+                            font-size: 12px;
+                            font-weight: 800;
+                            horizontal-stretch: 1;
+                        }
+
+                        Text {
+                            text: root.active_tech_progress_text;
+                            color: Theme.accent_cyan_bright;
+                            font-size: 12px;
+                            font-weight: 800;
+                        }
+                    }
+
+                    SegmentedGauge {
+                        value: root.active_tech_progress;
+                        segments: 24;
+                        fill_color: Theme.accent_cyan;
+                    }
+                }
+            }
+
+            HorizontalLayout {
+                height: 28px;
+                spacing: 6px;
+
+                TacticalButton {
+                    horizontal-stretch: 1;
+                    height: 28px;
+                    text: "ALL FIELDS";
+                    is_active: root.active_category_filter == 0;
+                    clicked => { root.category_selected(0); }
+                }
+
+                TacticalButton {
+                    horizontal-stretch: 1;
+                    height: 28px;
+                    text: "PRODUCTION & ENERGY";
+                    is_active: root.active_category_filter == 1;
+                    clicked => { root.category_selected(1); }
+                }
+
+                TacticalButton {
+                    horizontal-stretch: 1;
+                    height: 28px;
+                    text: "DIGITAL & AI";
+                    is_active: root.active_category_filter == 2;
+                    clicked => { root.category_selected(2); }
+                }
+
+                TacticalButton {
+                    horizontal-stretch: 1;
+                    height: 28px;
+                    text: "INFRASTRUCTURE & LOGISTICS";
+                    is_active: root.active_category_filter == 3;
+                    clicked => { root.category_selected(3); }
+                }
+            }
+
+            Rectangle {
+                height: 1px;
+                background: Theme.border_inner;
+            }
+
+            Flickable {
+                content-height: root.tech_items.length * 70px;
+
+                VerticalLayout {
+                    spacing: 6px;
+
+                    for tech in root.tech_items : Rectangle {
+                        height: 64px;
+                        background: Theme.surface_card;
+                        border-width: 1px;
+                        border-color: tech.is_active_research ? Theme.accent_cyan : Theme.border_outer;
+
+                        HorizontalLayout {
+                            padding: 10px;
+                            spacing: 12px;
+                            alignment: center;
+
+                            Rectangle {
+                                width: 3px;
+                                background: tech.is_completed 
+                                    ? Theme.accent_emerald 
+                                    : (tech.is_active_research ? Theme.accent_cyan : (tech.can_research ? Theme.accent_amber : Theme.border_inner));
+                            }
+
+                            VerticalLayout {
+                                horizontal-stretch: 1;
+                                spacing: 3px;
+                                alignment: center;
+
+                                HorizontalLayout {
+                                    spacing: 8px;
+
+                                    Text {
+                                        text: tech.name;
+                                        color: tech.is_completed ? Theme.accent_emerald : (tech.can_research ? Theme.text_primary : Theme.text_muted);
+                                        font-size: 13px;
+                                        font-weight: 800;
+                                    }
+
+                                    Rectangle {
+                                        border-radius: Theme.radius_sharp;
+                                        background: Theme.surface_inset;
+                                        border-width: 1px;
+                                        border-color: Theme.border_inner;
+                                        height: 18px;
+
+                                        HorizontalLayout {
+                                            padding-left: 6px;
+                                            padding-right: 6px;
+
+                                            Text {
+                                                text: tech.category;
+                                                color: Theme.text_cyan;
+                                                font-size: 9px;
+                                                font-weight: 700;
+                                                vertical-alignment: center;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                Text {
+                                    text: tech.unlocks_summary;
+                                    color: Theme.text_secondary;
+                                    font-size: 10px;
+                                }
+                            }
+
+                            if tech.is_completed : Rectangle {
+                                width: 130px;
+                                height: 32px;
+                                background: Theme.surface_inset;
+                                border-width: 1px;
+                                border-color: Theme.accent_emerald;
+
+                                Text {
+                                    text: "COMPLETED";
+                                    color: Theme.accent_emerald;
+                                    font-size: 10px;
+                                    font-weight: 800;
+                                    horizontal-alignment: center;
+                                    vertical-alignment: center;
+                                }
+                            }
+
+                            if tech.is_active_research : Rectangle {
+                                width: 130px;
+                                height: 32px;
+                                background: Theme.surface_active;
+                                border-width: 1px;
+                                border-color: Theme.accent_cyan;
+
+                                Text {
+                                    text: "RESEARCHING...";
+                                    color: Theme.accent_cyan_bright;
+                                    font-size: 10px;
+                                    font-weight: 800;
+                                    horizontal-alignment: center;
+                                    vertical-alignment: center;
+                                }
+                            }
+
+                            if !tech.is_completed && !tech.is_active_research && tech.can_research : TacticalButton {
+                                width: 130px;
+                                height: 32px;
+                                text: "COMMENCE";
+                                is_accent: true;
+                                clicked => { root.select_tech(tech.id); }
+                            }
+
+                            if !tech.is_completed && !tech.can_research : Rectangle {
+                                width: 130px;
+                                height: 32px;
+                                background: Theme.surface_inset;
+                                border-width: 1px;
+                                border-color: Theme.border_inner;
+
+                                Text {
+                                    text: "LOCKED";
+                                    color: Theme.text_muted;
+                                    font-size: 10px;
+                                    font-weight: 800;
+                                    horizontal-alignment: center;
+                                    vertical-alignment: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

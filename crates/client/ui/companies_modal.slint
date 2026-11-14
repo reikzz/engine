@@ -1,0 +1,199 @@
+import { Theme } from "theme.slint";
+import { ChassisFrame, TacticalButton } from "tactical_widgets.slint";
+
+export struct CompanyItem {
+    name: string,
+    sector: string,
+    country_tag: string,
+    balance_text: string,
+    profit_text: string,
+    is_positive_profit: bool,
+}
+
+export component CompaniesModal inherits Rectangle {
+    in property <[CompanyItem]> items: [];
+
+    callback close_clicked();
+
+    background: #000000a0;
+
+    TouchArea {
+        clicked => {}
+    }
+
+    ChassisFrame {
+        width: 680px;
+        height: 480px;
+        x: (parent.width - self.width) / 2;
+        y: (parent.height - self.height) / 2;
+        is_accented: true;
+
+        VerticalLayout {
+            padding: 14px;
+            spacing: 10px;
+
+            HorizontalLayout {
+                height: 34px;
+                alignment: space-between;
+
+                HorizontalLayout {
+                    spacing: 10px;
+                    alignment: start;
+
+                    Rectangle {
+                        width: 4px;
+                        height: 24px;
+                        background: Theme.accent_amber;
+                    }
+
+                    Text {
+                        text: "CORPORATE REGISTRY // ENTERPRISE DIRECTORY";
+                        color: Theme.text_primary;
+                        font-size: 13px;
+                        font-weight: 800;
+                        letter-spacing: 0.5px;
+                        vertical-alignment: center;
+                    }
+                }
+
+                TacticalButton {
+                    width: 28px;
+                    height: 26px;
+                    text: "✕";
+                    is_danger: true;
+                    clicked => { root.close_clicked(); }
+                }
+            }
+
+            Rectangle {
+                height: 1px;
+                background: Theme.border_inner;
+            }
+
+            Rectangle {
+                height: 26px;
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                HorizontalLayout {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    alignment: space-between;
+
+                    Text {
+                        text: "ENTERPRISE ENTITY";
+                        width: 190px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    Text {
+                        text: "SECTOR";
+                        width: 130px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    Text {
+                        text: "JURISDICTION";
+                        width: 90px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    Text {
+                        text: "LIQUID BALANCE";
+                        width: 110px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    Text {
+                        text: "NET MARGIN";
+                        width: 110px;
+                        color: Theme.text_muted;
+                        font-size: 10px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+
+            Flickable {
+                content-height: root.items.length * 34px;
+
+                VerticalLayout {
+                    spacing: 2px;
+
+                    for item in root.items: Rectangle {
+                        height: 32px;
+                        background: Theme.surface_card;
+                        border-width: 1px;
+                        border-color: Theme.border_outer;
+
+                        HorizontalLayout {
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            alignment: space-between;
+
+                            Text {
+                                text: item.name;
+                                width: 190px;
+                                color: Theme.text_primary;
+                                font-size: 11px;
+                                font-weight: 700;
+                                vertical-alignment: center;
+                                overflow: elide;
+                            }
+
+                            Text {
+                                text: item.sector;
+                                width: 130px;
+                                color: Theme.text_cyan;
+                                font-size: 10px;
+                                font-weight: 700;
+                                vertical-alignment: center;
+                            }
+
+                            Text {
+                                text: item.country_tag;
+                                width: 90px;
+                                color: Theme.text_gold;
+                                font-size: 10px;
+                                font-weight: 800;
+                                vertical-alignment: center;
+                            }
+
+                            Text {
+                                text: item.balance_text;
+                                width: 110px;
+                                color: Theme.text_primary;
+                                font-size: 11px;
+                                font-weight: 700;
+                                vertical-alignment: center;
+                            }
+
+                            Text {
+                                text: item.profit_text;
+                                width: 110px;
+                                color: item.is_positive_profit ? Theme.accent_emerald : Theme.accent_crimson;
+                                font-size: 11px;
+                                font-weight: 800;
+                                vertical-alignment: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

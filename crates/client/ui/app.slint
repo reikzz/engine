@@ -1,0 +1,277 @@
+import { CountryLabelItem, CountryLabelsLayer } from "country_labels.slint";
+import { TopBar } from "top_bar.slint";
+import { MapModesMenu } from "map_modes.slint";
+import { CountryPanel } from "country_panel.slint";
+import { TopNavBar } from "nav_bar.slint";
+import { MarketModal, ResourcePriceItem } from "market_modal.slint";
+import { CompaniesModal, CompanyItem } from "companies_modal.slint";
+import { RegionPanel, LocalFacilityItem } from "region_panel.slint";
+import { ConstructionModal, ConstructionRecipeItem } from "construction_modal.slint";
+import { TechModal, TechTreeItem } from "tech_modal.slint";
+
+export { 
+    CountryLabelItem, 
+    ResourcePriceItem, 
+    CompanyItem, 
+    LocalFacilityItem, 
+    ConstructionRecipeItem, 
+    TechTreeItem 
+}
+
+export component MainWindow inherits Window {
+    title: "Engine Simulation Client // Sovereign Situation Room";
+    preferred-width: 1280px;
+    preferred-height: 720px;
+    background: transparent;
+
+    in-out property <string> date_text: "2020-01-01 00:00";
+    in-out property <int> current_speed: 1;
+    in-out property <string> country_name: "United States";
+    in-out property <string> currency_symbol: "$";
+    in-out property <string> treasury_text: "$0";
+    in-out property <string> gdp_text: "$0";
+    in-out property <int> active_map_mode: 0;
+    in-out property <bool> map_menu_open: false;
+    in-out property <[CountryLabelItem]> country_labels: [];
+
+    in-out property <bool> country_menu_open: false;
+    in-out property <string> inspected_country_name: "";
+    in-out property <string> inspected_country_tag: "";
+    in-out property <string> inspected_gdp: "$0";
+    in-out property <string> inspected_treasury: "$0";
+    in-out property <string> inspected_debt: "$0";
+    in-out property <string> inspected_pop: "0";
+    in-out property <string> inspected_employment: "0";
+    in-out property <string> inspected_regions: "0";
+
+    in-out property <bool> market_menu_open: false;
+    in-out property <bool> market_modal_open: false;
+    in-out property <bool> market_is_global: false;
+    in-out property <[ResourcePriceItem]> local_market_items: [];
+    in-out property <[ResourcePriceItem]> global_market_items: [];
+
+    in-out property <bool> companies_modal_open: false;
+    in-out property <[CompanyItem]> company_items: [];
+
+    in-out property <bool> region_panel_open: false;
+    in-out property <string> region_name: "";
+    in-out property <int> region_id: 0;
+    in-out property <string> region_country_tag: "";
+    in-out property <string> region_terrain: "";
+    in-out property <string> region_pop_text: "0";
+    in-out property <string> region_emp_text: "0";
+    in-out property <float> region_emp_ratio: 0.0;
+    in-out property <float> region_satisfaction_ratio: 0.0;
+    in-out property <float> region_radicalism_ratio: 0.0;
+    in-out property <string> region_infra_level: "";
+    in-out property <string> region_infra_cap_text: "";
+    in-out property <float> region_infra_util: 0.0;
+    in-out property <float> region_market_access_ratio: 0.0;
+    in-out property <string> region_market_access_text: "";
+    in-out property <string> region_avg_price_text: "$0";
+    in-out property <[LocalFacilityItem]> region_facilities: [];
+    in-out property <int> region_active_tab: 0;
+
+    in-out property <bool> construction_modal_open: false;
+    in-out property <[ConstructionRecipeItem]> construction_recipes: [];
+    in-out property <int> construction_active_filter: 0;
+
+    in-out property <bool> tech_modal_open: false;
+    in-out property <string> active_tech_name: "NONE";
+    in-out property <string> active_tech_category: "NONE";
+    in-out property <float> active_tech_progress: 0.0;
+    in-out property <string> active_tech_progress_text: "0%";
+    in-out property <bool> has_active_research: false;
+    in-out property <[TechTreeItem]> tech_items: [];
+    in-out property <int> tech_active_filter: 0;
+
+    callback speed_changed(int);
+    callback map_mode_changed(int);
+    callback country_menu_closed();
+    callback region_panel_closed();
+    callback region_tab_selected(int);
+    callback commission_construction_requested(int);
+    callback upgrade_infrastructure_requested(int);
+    callback select_research_requested(int);
+    callback construction_filter_selected(int);
+    callback tech_filter_selected(int);
+
+    CountryLabelsLayer {
+        labels: root.country_labels;
+    }
+
+    TopBar {
+        x: 0px;
+        y: 0px;
+        width: parent.width;
+        country_name: root.country_name;
+        treasury_text: root.treasury_text;
+        gdp_text: root.gdp_text;
+        date_text: root.date_text;
+        current_speed: root.current_speed;
+        speed_changed(speed_val) => {
+            root.current_speed = speed_val;
+            root.speed_changed(speed_val);
+        }
+    }
+
+    TopNavBar {
+        x: 14px;
+        y: 50px;
+        market_menu_open <=> root.market_menu_open;
+        companies_open: root.companies_modal_open;
+        tech_open: root.tech_modal_open;
+        local_market_selected => {
+            root.market_is_global = false;
+            root.market_modal_open = true;
+        }
+        global_market_selected => {
+            root.market_is_global = true;
+            root.market_modal_open = true;
+        }
+        companies_toggle => {
+            root.companies_modal_open = !root.companies_modal_open;
+        }
+        tech_toggle => {
+            root.tech_modal_open = !root.tech_modal_open;
+        }
+    }
+
+    if root.region_panel_open : RegionPanel {
+        x: 14px;
+        y: 88px;
+        region_name: root.region_name;
+        region_id: root.region_id;
+        country_tag: root.region_country_tag;
+        terrain_type: root.region_terrain;
+        population_text: root.region_pop_text;
+        employment_text: root.region_emp_text;
+        employment_ratio: root.region_emp_ratio;
+        satisfaction_ratio: root.region_satisfaction_ratio;
+        radicalism_ratio: root.region_radicalism_ratio;
+        infra_level_text: root.region_infra_level;
+        infra_capacity_text: root.region_infra_cap_text;
+        infra_utilization: root.region_infra_util;
+        market_access_ratio: root.region_market_access_ratio;
+        market_access_text: root.region_market_access_text;
+        avg_price_text: root.region_avg_price_text;
+        facilities: root.region_facilities;
+        active_tab: root.region_active_tab;
+        close_clicked => {
+            root.region_panel_open = false;
+            root.region_panel_closed();
+        }
+        tab_selected(tab_idx) => {
+            root.region_active_tab = tab_idx;
+            root.region_tab_selected(tab_idx);
+        }
+        commission_clicked => {
+            root.construction_modal_open = true;
+        }
+        upgrade_infra_clicked => {
+            root.upgrade_infrastructure_requested(root.region_id);
+        }
+    }
+
+    if root.country_menu_open : CountryPanel {
+        x: 14px;
+        y: 88px;
+        country_name: root.inspected_country_name;
+        country_tag: root.inspected_country_tag;
+        gdp_text: root.inspected_gdp;
+        treasury_text: root.inspected_treasury;
+        debt_text: root.inspected_debt;
+        population_text: root.inspected_pop;
+        employment_text: root.inspected_employment;
+        regions_count_text: root.inspected_regions;
+        close_clicked => {
+            root.country_menu_open = false;
+            root.country_menu_closed();
+        }
+    }
+
+    if root.market_modal_open : MarketModal {
+        x: 0px;
+        y: 0px;
+        width: parent.width;
+        height: parent.height;
+        is_global: root.market_is_global;
+        country_name: root.country_name;
+        currency_symbol: root.currency_symbol;
+        items: root.market_is_global ? root.global_market_items : root.local_market_items;
+        close_clicked => {
+            root.market_modal_open = false;
+        }
+        tab_changed(global_val) => {
+            root.market_is_global = global_val;
+        }
+    }
+
+    if root.companies_modal_open : CompaniesModal {
+        x: 0px;
+        y: 0px;
+        width: parent.width;
+        height: parent.height;
+        items: root.company_items;
+        close_clicked => {
+            root.companies_modal_open = false;
+        }
+    }
+
+    if root.construction_modal_open : ConstructionModal {
+        x: 0px;
+        y: 0px;
+        width: parent.width;
+        height: parent.height;
+        target_region_name: root.region_name;
+        target_region_id: root.region_id;
+        recipes: root.construction_recipes;
+        active_category_filter: root.construction_active_filter;
+        close_clicked => {
+            root.construction_modal_open = false;
+        }
+        category_selected(cat_idx) => {
+            root.construction_active_filter = cat_idx;
+            root.construction_filter_selected(cat_idx);
+        }
+        commission_recipe(recipe_id) => {
+            root.commission_construction_requested(recipe_id);
+            root.construction_modal_open = false;
+        }
+    }
+
+    if root.tech_modal_open : TechModal {
+        x: 0px;
+        y: 0px;
+        width: parent.width;
+        height: parent.height;
+        active_tech_name: root.active_tech_name;
+        active_tech_category: root.active_tech_category;
+        active_tech_progress: root.active_tech_progress;
+        active_tech_progress_text: root.active_tech_progress_text;
+        has_active_research: root.has_active_research;
+        tech_items: root.tech_items;
+        active_category_filter: root.tech_active_filter;
+        close_clicked => {
+            root.tech_modal_open = false;
+        }
+        category_selected(cat_idx) => {
+            root.tech_active_filter = cat_idx;
+            root.tech_filter_selected(cat_idx);
+        }
+        select_tech(tech_id) => {
+            root.select_research_requested(tech_id);
+        }
+    }
+
+    MapModesMenu {
+        x: parent.width - self.width - 16px;
+        y: parent.height - self.height - 16px;
+        active_mode: root.active_map_mode;
+        is_open <=> root.map_menu_open;
+        mode_changed(mode_val) => {
+            root.active_map_mode = mode_val;
+            root.map_mode_changed(mode_val);
+        }
+    }
+}

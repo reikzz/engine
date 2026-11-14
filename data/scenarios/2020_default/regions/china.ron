@@ -1,0 +1,2032 @@
+[
+    (
+        id: 8,
+        owner: "CHN",
+        infrastructure_level: 1.70,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 15000, natural_max_capacity: 45000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 50000000.0,
+            ),
+            (
+                company_id: 39,
+                sector_kind: HighTech,
+                lines: [
+                    (recipe_key: "recipe_electronic_components", installed_capacity: 12000, natural_max_capacity: 36000, priority: Critical, target_wage: 45.0),
+                    (recipe_key: "recipe_computers", installed_capacity: 9000, natural_max_capacity: 27000, priority: Critical, target_wage: 45.0),
+                    (recipe_key: "recipe_semiconductors", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 50.0),
+                    (recipe_key: "recipe_smartphones", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 45.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 65000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_textiles", installed_capacity: 10000, natural_max_capacity: 30000, priority: High, target_wage: 30.0),
+                    (recipe_key: "recipe_household_chemicals", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 30.0),
+                    (recipe_key: "recipe_furniture", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 30.0),
+                    (recipe_key: "recipe_cosmetics", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 50000000.0,
+            ),
+            (
+                company_id: 54,
+                sector_kind: InformationTechnology,
+                lines: [
+                    (recipe_key: "recipe_software_development", installed_capacity: 6000, natural_max_capacity: 18000, priority: Critical, target_wage: 60.0),
+                    (recipe_key: "recipe_digital_platforms", installed_capacity: 6000, natural_max_capacity: 18000, priority: Critical, target_wage: 60.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 60000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_polymer_synthesis", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_synthetics_production", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 33,
+                sector_kind: Construction,
+                lines: [
+                    (recipe_key: "recipe_construction_materials", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1800, wage_per_worker: 900.0),
+            (key: "public_school", level: 1800, wage_per_worker: 950.0),
+            (key: "state_university", level: 1200, wage_per_worker: 1300.0),
+            (key: "regional_hospital", level: 1600, wage_per_worker: 1200.0),
+            (key: "police_department", level: 1200, wage_per_worker: 950.0),
+            (key: "fire_and_rescue_station", level: 1000, wage_per_worker: 900.0),
+            (key: "government_center", level: 1200, wage_per_worker: 1300.0),
+            (key: "commercial_bank", level: 1400, wage_per_worker: 1300.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 28000000, base_rent: 280.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 6000000, base_rent: 450.0),
+        ],
+    ),
+
+    (
+        id: 9,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 14000, natural_max_capacity: 42000, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 10000, natural_max_capacity: 30000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 40.0),
+                    (recipe_key: "recipe_engine_manufacturing", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 40.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 55000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_fertilizer_production", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 35.0),
+                    (recipe_key: "recipe_rubber_production", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_household_chemicals", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 30.0),
+                    (recipe_key: "recipe_textiles", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 10000, natural_max_capacity: 30000, priority: High, target_wage: 25.0),
+                    (recipe_key: "recipe_fishing", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 25.0),
+                    (recipe_key: "recipe_industrial_crops", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 25.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 30.0),
+                    (recipe_key: "recipe_oil_drilling", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 40000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1600, wage_per_worker: 850.0),
+            (key: "public_school", level: 1600, wage_per_worker: 900.0),
+            (key: "state_university", level: 1100, wage_per_worker: 1200.0),
+            (key: "regional_hospital", level: 1500, wage_per_worker: 1100.0),
+            (key: "police_department", level: 1100, wage_per_worker: 900.0),
+            (key: "fire_and_rescue_station", level: 900, wage_per_worker: 850.0),
+            (key: "government_center", level: 1100, wage_per_worker: 1200.0),
+            (key: "commercial_bank", level: 1200, wage_per_worker: 1200.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 28000000, base_rent: 220.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 4500000, base_rent: 350.0),
+        ],
+    ),
+
+    (
+        id: 10,
+        owner: "CHN",
+        infrastructure_level: 1.55,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 12000, natural_max_capacity: 36000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 16000, natural_max_capacity: 48000, priority: Critical, target_wage: 24.0),
+                    (recipe_key: "recipe_livestock_farming", installed_capacity: 10000, natural_max_capacity: 30000, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_industrial_crops", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 50000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_tractors", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 35.0),
+                    (recipe_key: "recipe_aluminum_smelting", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 28.0),
+                    (recipe_key: "recipe_bauxite_quarry", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_textiles", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 26.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+            (
+                company_id: 33,
+                sector_kind: Construction,
+                lines: [
+                    (recipe_key: "recipe_construction_materials", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1500, wage_per_worker: 800.0),
+            (key: "public_school", level: 1500, wage_per_worker: 850.0),
+            (key: "state_university", level: 900, wage_per_worker: 1100.0),
+            (key: "regional_hospital", level: 1400, wage_per_worker: 1050.0),
+            (key: "police_department", level: 1000, wage_per_worker: 850.0),
+            (key: "fire_and_rescue_station", level: 800, wage_per_worker: 800.0),
+            (key: "government_center", level: 1000, wage_per_worker: 1100.0),
+            (key: "commercial_bank", level: 1100, wage_per_worker: 1100.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 27000000, base_rent: 180.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 3500000, base_rent: 300.0),
+        ],
+    ),
+
+    (
+        id: 19,
+        owner: "CHN",
+        infrastructure_level: 1.55,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 15000, natural_max_capacity: 45000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 36.0),
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_engine_manufacturing", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_automobiles", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_household_chemicals", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 12000, natural_max_capacity: 36000, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_livestock_farming", installed_capacity: 10000, natural_max_capacity: 30000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_gas_extraction", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 32.0),
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_fertilizer_production", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 32.0),
+                    (recipe_key: "recipe_pharmaceuticals", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 40.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1700, wage_per_worker: 800.0),
+            (key: "public_school", level: 1700, wage_per_worker: 850.0),
+            (key: "state_university", level: 1100, wage_per_worker: 1150.0),
+            (key: "regional_hospital", level: 1600, wage_per_worker: 1100.0),
+            (key: "police_department", level: 1200, wage_per_worker: 850.0),
+            (key: "fire_and_rescue_station", level: 950, wage_per_worker: 800.0),
+            (key: "government_center", level: 1200, wage_per_worker: 1150.0),
+            (key: "commercial_bank", level: 1300, wage_per_worker: 1150.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 34000000, base_rent: 190.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 4500000, base_rent: 320.0),
+        ],
+    ),
+
+    (
+        id: 20,
+        owner: "CHN",
+        infrastructure_level: 1.70,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 13000, natural_max_capacity: 39000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 10000, natural_max_capacity: 30000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 40.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 50000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_polymer_synthesis", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_synthetics_production", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_pharmaceuticals", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 45.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 39,
+                sector_kind: HighTech,
+                lines: [
+                    (recipe_key: "recipe_electronic_components", installed_capacity: 9000, natural_max_capacity: 27000, priority: Critical, target_wage: 45.0),
+                    (recipe_key: "recipe_semiconductors", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 50.0),
+                    (recipe_key: "recipe_computers", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 45.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 50000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_textiles", installed_capacity: 9000, natural_max_capacity: 27000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 25.0),
+                    (recipe_key: "recipe_fishing", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 25.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1500, wage_per_worker: 900.0),
+            (key: "public_school", level: 1500, wage_per_worker: 950.0),
+            (key: "state_university", level: 1100, wage_per_worker: 1300.0),
+            (key: "regional_hospital", level: 1400, wage_per_worker: 1200.0),
+            (key: "police_department", level: 1100, wage_per_worker: 950.0),
+            (key: "fire_and_rescue_station", level: 900, wage_per_worker: 900.0),
+            (key: "government_center", level: 1100, wage_per_worker: 1300.0),
+            (key: "commercial_bank", level: 1300, wage_per_worker: 1300.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 24000000, base_rent: 260.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 5000000, base_rent: 420.0),
+        ],
+    ),
+
+    (
+        id: 21,
+        owner: "CHN",
+        infrastructure_level: 1.60,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 12000, natural_max_capacity: 36000, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 14000, natural_max_capacity: 42000, priority: Critical, target_wage: 36.0),
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 55000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_iron_quarry", installed_capacity: 10000, natural_max_capacity: 30000, priority: Critical, target_wage: 32.0),
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 9000, natural_max_capacity: 27000, priority: Critical, target_wage: 30.0),
+                    (recipe_key: "recipe_stone_quarry", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 25.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 33,
+                sector_kind: Construction,
+                lines: [
+                    (recipe_key: "recipe_construction_materials", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 28000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1300, wage_per_worker: 800.0),
+            (key: "public_school", level: 1300, wage_per_worker: 850.0),
+            (key: "state_university", level: 850, wage_per_worker: 1100.0),
+            (key: "regional_hospital", level: 1200, wage_per_worker: 1050.0),
+            (key: "police_department", level: 950, wage_per_worker: 850.0),
+            (key: "fire_and_rescue_station", level: 750, wage_per_worker: 800.0),
+            (key: "government_center", level: 950, wage_per_worker: 1100.0),
+            (key: "commercial_bank", level: 1000, wage_per_worker: 1100.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 20000000, base_rent: 190.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 3000000, base_rent: 300.0),
+        ],
+    ),
+
+    (
+        id: 22,
+        owner: "CHN",
+        infrastructure_level: 1.55,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 10000, natural_max_capacity: 30000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 7000, natural_max_capacity: 21000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_rare_earths_mining", installed_capacity: 5000, natural_max_capacity: 15000, priority: Critical, target_wage: 45.0),
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 9000, natural_max_capacity: 27000, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_livestock_farming", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 32000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_household_chemicals", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1200, wage_per_worker: 800.0),
+            (key: "public_school", level: 1200, wage_per_worker: 850.0),
+            (key: "state_university", level: 800, wage_per_worker: 1100.0),
+            (key: "regional_hospital", level: 1100, wage_per_worker: 1050.0),
+            (key: "police_department", level: 900, wage_per_worker: 850.0),
+            (key: "fire_and_rescue_station", level: 700, wage_per_worker: 800.0),
+            (key: "government_center", level: 900, wage_per_worker: 1100.0),
+            (key: "commercial_bank", level: 950, wage_per_worker: 1100.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 19000000, base_rent: 180.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 2800000, base_rent: 290.0),
+        ],
+    ),
+
+    (
+        id: 401,
+        owner: "CHN",
+        infrastructure_level: 1.55,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 9000, natural_max_capacity: 27000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 32000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 8000, natural_max_capacity: 24000, priority: Critical, target_wage: 28.0),
+                    (recipe_key: "recipe_copper_quarry", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_copper_smelting", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 35.0),
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 32000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_automobiles", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 36.0),
+                    (recipe_key: "recipe_household_chemicals", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 28000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1100, wage_per_worker: 780.0),
+            (key: "public_school", level: 1100, wage_per_worker: 820.0),
+            (key: "state_university", level: 750, wage_per_worker: 1080.0),
+            (key: "regional_hospital", level: 1000, wage_per_worker: 1020.0),
+            (key: "police_department", level: 800, wage_per_worker: 820.0),
+            (key: "fire_and_rescue_station", level: 650, wage_per_worker: 780.0),
+            (key: "government_center", level: 800, wage_per_worker: 1080.0),
+            (key: "commercial_bank", level: 850, wage_per_worker: 1080.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 18000000, base_rent: 170.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 2500000, base_rent: 280.0),
+        ],
+    ),
+
+    (
+        id: 402,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 14000, natural_max_capacity: 42000, priority: Critical, target_wage: 32.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_automobiles", installed_capacity: 8000, natural_max_capacity: 24000, priority: Critical, target_wage: 40.0),
+                    (recipe_key: "recipe_trucks", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 40.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 8000, natural_max_capacity: 24000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_engine_manufacturing", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 39,
+                sector_kind: HighTech,
+                lines: [
+                    (recipe_key: "recipe_electronic_components", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 42.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_fishing", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 28000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1200, wage_per_worker: 850.0),
+            (key: "public_school", level: 1200, wage_per_worker: 900.0),
+            (key: "state_university", level: 950, wage_per_worker: 1200.0),
+            (key: "regional_hospital", level: 1150, wage_per_worker: 1150.0),
+            (key: "police_department", level: 900, wage_per_worker: 900.0),
+            (key: "fire_and_rescue_station", level: 750, wage_per_worker: 850.0),
+            (key: "government_center", level: 950, wage_per_worker: 1200.0),
+            (key: "commercial_bank", level: 1000, wage_per_worker: 1200.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 18000000, base_rent: 220.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 3200000, base_rent: 350.0),
+        ],
+    ),
+
+    (
+        id: 403,
+        owner: "CHN",
+        infrastructure_level: 1.70,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 9000, natural_max_capacity: 27000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_textiles", installed_capacity: 11000, natural_max_capacity: 33000, priority: Critical, target_wage: 32.0),
+                    (recipe_key: "recipe_furniture", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 30.0),
+                    (recipe_key: "recipe_household_chemicals", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 30.0),
+                    (recipe_key: "recipe_cosmetics", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 50000000.0,
+            ),
+            (
+                company_id: 54,
+                sector_kind: InformationTechnology,
+                lines: [
+                    (recipe_key: "recipe_digital_platforms", installed_capacity: 6000, natural_max_capacity: 18000, priority: Critical, target_wage: 60.0),
+                    (recipe_key: "recipe_software_development", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 60.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 55000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_synthetics_production", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_polymer_synthesis", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_fishing", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 25.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1100, wage_per_worker: 900.0),
+            (key: "public_school", level: 1100, wage_per_worker: 950.0),
+            (key: "state_university", level: 800, wage_per_worker: 1300.0),
+            (key: "regional_hospital", level: 1000, wage_per_worker: 1200.0),
+            (key: "police_department", level: 800, wage_per_worker: 950.0),
+            (key: "fire_and_rescue_station", level: 650, wage_per_worker: 900.0),
+            (key: "government_center", level: 800, wage_per_worker: 1300.0),
+            (key: "commercial_bank", level: 950, wage_per_worker: 1300.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 15000000, base_rent: 260.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 3800000, base_rent: 420.0),
+        ],
+    ),
+
+    (
+        id: 404,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 9000, natural_max_capacity: 27000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_engine_manufacturing", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_automobiles", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 32000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 28.0),
+                    (recipe_key: "recipe_iron_quarry", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1000, wage_per_worker: 820.0),
+            (key: "public_school", level: 1000, wage_per_worker: 870.0),
+            (key: "state_university", level: 750, wage_per_worker: 1150.0),
+            (key: "regional_hospital", level: 950, wage_per_worker: 1100.0),
+            (key: "police_department", level: 750, wage_per_worker: 870.0),
+            (key: "fire_and_rescue_station", level: 600, wage_per_worker: 820.0),
+            (key: "government_center", level: 750, wage_per_worker: 1150.0),
+            (key: "commercial_bank", level: 800, wage_per_worker: 1150.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 14000000, base_rent: 200.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 2500000, base_rent: 310.0),
+        ],
+    ),
+
+    (
+        id: 405,
+        owner: "CHN",
+        infrastructure_level: 1.50,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 10000, natural_max_capacity: 30000, priority: Critical, target_wage: 30.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 16000, natural_max_capacity: 48000, priority: Critical, target_wage: 32.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 55000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 35.0),
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_fertilizer_production", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 850, wage_per_worker: 780.0),
+            (key: "public_school", level: 850, wage_per_worker: 820.0),
+            (key: "state_university", level: 550, wage_per_worker: 1050.0),
+            (key: "regional_hospital", level: 800, wage_per_worker: 1000.0),
+            (key: "police_department", level: 650, wage_per_worker: 820.0),
+            (key: "fire_and_rescue_station", level: 500, wage_per_worker: 780.0),
+            (key: "government_center", level: 650, wage_per_worker: 1050.0),
+            (key: "commercial_bank", level: 700, wage_per_worker: 1050.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 10500000, base_rent: 160.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1600000, base_rent: 250.0),
+        ],
+    ),
+
+    (
+        id: 406,
+        owner: "CHN",
+        infrastructure_level: 1.60,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 8000, natural_max_capacity: 24000, priority: Critical, target_wage: 30.0),
+                    (recipe_key: "recipe_oil_drilling", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 35.0),
+                    (recipe_key: "recipe_gas_extraction", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 28000000.0,
+            ),
+            (
+                company_id: 39,
+                sector_kind: HighTech,
+                lines: [
+                    (recipe_key: "recipe_electronic_components", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 42.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 900, wage_per_worker: 800.0),
+            (key: "public_school", level: 900, wage_per_worker: 850.0),
+            (key: "state_university", level: 700, wage_per_worker: 1150.0),
+            (key: "regional_hospital", level: 850, wage_per_worker: 1100.0),
+            (key: "police_department", level: 700, wage_per_worker: 850.0),
+            (key: "fire_and_rescue_station", level: 550, wage_per_worker: 800.0),
+            (key: "government_center", level: 700, wage_per_worker: 1150.0),
+            (key: "commercial_bank", level: 750, wage_per_worker: 1150.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 11500000, base_rent: 180.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1800000, base_rent: 290.0),
+        ],
+    ),
+
+    (
+        id: 407,
+        owner: "CHN",
+        infrastructure_level: 1.60,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_oil_drilling", installed_capacity: 12000, natural_max_capacity: 36000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_polymer_synthesis", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 36.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_forestry", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 900, wage_per_worker: 800.0),
+            (key: "public_school", level: 900, wage_per_worker: 850.0),
+            (key: "state_university", level: 650, wage_per_worker: 1100.0),
+            (key: "regional_hospital", level: 850, wage_per_worker: 1050.0),
+            (key: "police_department", level: 700, wage_per_worker: 850.0),
+            (key: "fire_and_rescue_station", level: 550, wage_per_worker: 800.0),
+            (key: "government_center", level: 700, wage_per_worker: 1100.0),
+            (key: "commercial_bank", level: 750, wage_per_worker: 1100.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 12000000, base_rent: 180.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1800000, base_rent: 280.0),
+        ],
+    ),
+
+    (
+        id: 408,
+        owner: "CHN",
+        infrastructure_level: 1.60,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 5500, natural_max_capacity: 16500, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_automobiles", installed_capacity: 7000, natural_max_capacity: 21000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_trucks", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_engine_manufacturing", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 36.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_fertilizer_production", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 750, wage_per_worker: 800.0),
+            (key: "public_school", level: 750, wage_per_worker: 850.0),
+            (key: "state_university", level: 550, wage_per_worker: 1100.0),
+            (key: "regional_hospital", level: 700, wage_per_worker: 1050.0),
+            (key: "police_department", level: 550, wage_per_worker: 850.0),
+            (key: "fire_and_rescue_station", level: 450, wage_per_worker: 800.0),
+            (key: "government_center", level: 550, wage_per_worker: 1100.0),
+            (key: "commercial_bank", level: 600, wage_per_worker: 1100.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 9000000, base_rent: 180.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1400000, base_rent: 280.0),
+        ],
+    ),
+
+    (
+        id: 409,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 6500, natural_max_capacity: 19500, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_textiles", installed_capacity: 7000, natural_max_capacity: 21000, priority: Critical, target_wage: 30.0),
+                    (recipe_key: "recipe_furniture", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 28.0),
+                    (recipe_key: "recipe_household_chemicals", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 39,
+                sector_kind: HighTech,
+                lines: [
+                    (recipe_key: "recipe_electronic_components", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 42.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_fishing", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 25.0),
+                    (recipe_key: "recipe_forestry", installed_capacity: 3000, natural_max_capacity: 9000, priority: High, target_wage: 25.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 850, wage_per_worker: 850.0),
+            (key: "public_school", level: 850, wage_per_worker: 900.0),
+            (key: "state_university", level: 600, wage_per_worker: 1200.0),
+            (key: "regional_hospital", level: 800, wage_per_worker: 1100.0),
+            (key: "police_department", level: 650, wage_per_worker: 900.0),
+            (key: "fire_and_rescue_station", level: 500, wage_per_worker: 850.0),
+            (key: "government_center", level: 650, wage_per_worker: 1200.0),
+            (key: "commercial_bank", level: 750, wage_per_worker: 1200.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 11000000, base_rent: 230.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 2200000, base_rent: 360.0),
+        ],
+    ),
+
+    (
+        id: 410,
+        owner: "CHN",
+        infrastructure_level: 1.55,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 6500, natural_max_capacity: 19500, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_copper_quarry", installed_capacity: 6000, natural_max_capacity: 18000, priority: Critical, target_wage: 35.0),
+                    (recipe_key: "recipe_rare_earths_mining", installed_capacity: 4000, natural_max_capacity: 12000, priority: Critical, target_wage: 45.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 35000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_copper_smelting", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 850, wage_per_worker: 780.0),
+            (key: "public_school", level: 850, wage_per_worker: 820.0),
+            (key: "state_university", level: 550, wage_per_worker: 1050.0),
+            (key: "regional_hospital", level: 800, wage_per_worker: 1000.0),
+            (key: "police_department", level: 650, wage_per_worker: 820.0),
+            (key: "fire_and_rescue_station", level: 500, wage_per_worker: 780.0),
+            (key: "government_center", level: 650, wage_per_worker: 1050.0),
+            (key: "commercial_bank", level: 700, wage_per_worker: 1050.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 12500000, base_rent: 170.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1800000, base_rent: 270.0),
+        ],
+    ),
+
+    (
+        id: 411,
+        owner: "CHN",
+        infrastructure_level: 1.55,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_aluminum_smelting", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 35.0),
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 28000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_bauxite_quarry", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_industrial_crops", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 900, wage_per_worker: 780.0),
+            (key: "public_school", level: 900, wage_per_worker: 820.0),
+            (key: "state_university", level: 600, wage_per_worker: 1050.0),
+            (key: "regional_hospital", level: 850, wage_per_worker: 1000.0),
+            (key: "police_department", level: 700, wage_per_worker: 820.0),
+            (key: "fire_and_rescue_station", level: 550, wage_per_worker: 780.0),
+            (key: "government_center", level: 700, wage_per_worker: 1050.0),
+            (key: "commercial_bank", level: 750, wage_per_worker: 1050.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 13500000, base_rent: 170.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1800000, base_rent: 270.0),
+        ],
+    ),
+
+    (
+        id: 412,
+        owner: "CHN",
+        infrastructure_level: 1.50,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_copper_quarry", installed_capacity: 6000, natural_max_capacity: 18000, priority: Critical, target_wage: 35.0),
+                    (recipe_key: "recipe_rare_earths_mining", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 45.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 32000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_copper_smelting", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_industrial_crops", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 850, wage_per_worker: 760.0),
+            (key: "public_school", level: 850, wage_per_worker: 800.0),
+            (key: "state_university", level: 550, wage_per_worker: 1020.0),
+            (key: "regional_hospital", level: 800, wage_per_worker: 980.0),
+            (key: "police_department", level: 650, wage_per_worker: 800.0),
+            (key: "fire_and_rescue_station", level: 500, wage_per_worker: 760.0),
+            (key: "government_center", level: 650, wage_per_worker: 1020.0),
+            (key: "commercial_bank", level: 700, wage_per_worker: 1020.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 13000000, base_rent: 160.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1700000, base_rent: 250.0),
+        ],
+    ),
+
+    (
+        id: 413,
+        owner: "CHN",
+        infrastructure_level: 1.45,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 28.0),
+                    (recipe_key: "recipe_bauxite_quarry", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 28000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_aluminum_smelting", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 750, wage_per_worker: 750.0),
+            (key: "public_school", level: 750, wage_per_worker: 780.0),
+            (key: "state_university", level: 450, wage_per_worker: 1000.0),
+            (key: "regional_hospital", level: 700, wage_per_worker: 950.0),
+            (key: "police_department", level: 550, wage_per_worker: 780.0),
+            (key: "fire_and_rescue_station", level: 450, wage_per_worker: 750.0),
+            (key: "government_center", level: 550, wage_per_worker: 1000.0),
+            (key: "commercial_bank", level: 600, wage_per_worker: 1000.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 10500000, base_rent: 150.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1400000, base_rent: 240.0),
+        ],
+    ),
+
+    (
+        id: 414,
+        owner: "CHN",
+        infrastructure_level: 1.50,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 7000, natural_max_capacity: 21000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_rare_earths_mining", installed_capacity: 8000, natural_max_capacity: 24000, priority: Critical, target_wage: 45.0),
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 8000, natural_max_capacity: 24000, priority: Critical, target_wage: 30.0),
+                    (recipe_key: "recipe_iron_quarry", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_livestock_farming", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 650, wage_per_worker: 780.0),
+            (key: "public_school", level: 650, wage_per_worker: 820.0),
+            (key: "state_university", level: 450, wage_per_worker: 1050.0),
+            (key: "regional_hospital", level: 600, wage_per_worker: 1000.0),
+            (key: "police_department", level: 500, wage_per_worker: 820.0),
+            (key: "fire_and_rescue_station", level: 400, wage_per_worker: 780.0),
+            (key: "government_center", level: 500, wage_per_worker: 1050.0),
+            (key: "commercial_bank", level: 550, wage_per_worker: 1050.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 7500000, base_rent: 160.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1100000, base_rent: 250.0),
+        ],
+    ),
+
+    (
+        id: 415,
+        owner: "CHN",
+        infrastructure_level: 1.45,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_oil_drilling", installed_capacity: 8000, natural_max_capacity: 24000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_gas_extraction", installed_capacity: 7000, natural_max_capacity: 21000, priority: Critical, target_wage: 38.0),
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 28.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_industrial_crops", installed_capacity: 6000, natural_max_capacity: 18000, priority: Critical, target_wage: 26.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 600, wage_per_worker: 780.0),
+            (key: "public_school", level: 600, wage_per_worker: 820.0),
+            (key: "state_university", level: 400, wage_per_worker: 1050.0),
+            (key: "regional_hospital", level: 550, wage_per_worker: 1000.0),
+            (key: "police_department", level: 500, wage_per_worker: 850.0),
+            (key: "fire_and_rescue_station", level: 380, wage_per_worker: 780.0),
+            (key: "government_center", level: 450, wage_per_worker: 1050.0),
+            (key: "commercial_bank", level: 500, wage_per_worker: 1050.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 6000000, base_rent: 160.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 900000, base_rent: 250.0),
+        ],
+    ),
+
+    (
+        id: 416,
+        owner: "CHN",
+        infrastructure_level: 1.45,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 36.0),
+                    (recipe_key: "recipe_fertilizer_production", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_copper_smelting", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 35.0),
+                    (recipe_key: "recipe_aluminum_smelting", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 22000000.0,
+            ),
+            (
+                company_id: 30,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_copper_quarry", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 750, wage_per_worker: 760.0),
+            (key: "public_school", level: 750, wage_per_worker: 800.0),
+            (key: "state_university", level: 500, wage_per_worker: 1020.0),
+            (key: "regional_hospital", level: 700, wage_per_worker: 980.0),
+            (key: "police_department", level: 550, wage_per_worker: 800.0),
+            (key: "fire_and_rescue_station", level: 450, wage_per_worker: 760.0),
+            (key: "government_center", level: 550, wage_per_worker: 1020.0),
+            (key: "commercial_bank", level: 600, wage_per_worker: 1020.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 9500000, base_rent: 150.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1300000, base_rent: 240.0),
+        ],
+    ),
+
+    (
+        id: 417,
+        owner: "CHN",
+        infrastructure_level: 1.95,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 54,
+                sector_kind: InformationTechnology,
+                lines: [
+                    (recipe_key: "recipe_software_development", installed_capacity: 6500, natural_max_capacity: 20000, priority: Critical, target_wage: 65.0),
+                    (recipe_key: "recipe_cloud_hosting", installed_capacity: 5000, natural_max_capacity: 15000, priority: Critical, target_wage: 65.0),
+                    (recipe_key: "recipe_digital_platforms", installed_capacity: 5000, natural_max_capacity: 15000, priority: Critical, target_wage: 65.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 60000000.0,
+            ),
+            (
+                company_id: 39,
+                sector_kind: HighTech,
+                lines: [
+                    (recipe_key: "recipe_computers", installed_capacity: 5000, natural_max_capacity: 15000, priority: Critical, target_wage: 50.0),
+                    (recipe_key: "recipe_electronic_components", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 50.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_automobiles", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 42.0),
+                    (recipe_key: "recipe_cosmetics", installed_capacity: 3000, natural_max_capacity: 9000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1100, wage_per_worker: 1100.0),
+            (key: "public_school", level: 1100, wage_per_worker: 1150.0),
+            (key: "state_university", level: 1200, wage_per_worker: 1600.0),
+            (key: "regional_hospital", level: 1100, wage_per_worker: 1500.0),
+            (key: "police_department", level: 1000, wage_per_worker: 1200.0),
+            (key: "fire_and_rescue_station", level: 800, wage_per_worker: 1100.0),
+            (key: "government_center", level: 1400, wage_per_worker: 1700.0),
+            (key: "commercial_bank", level: 1200, wage_per_worker: 1600.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 6500000, base_rent: 380.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 2500000, base_rent: 650.0),
+        ],
+    ),
+
+    (
+        id: 418,
+        owner: "CHN",
+        infrastructure_level: 1.95,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 30000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 8000, natural_max_capacity: 24000, priority: Critical, target_wage: 42.0),
+                    (recipe_key: "recipe_industrial_machinery", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 45.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_automobiles", installed_capacity: 7000, natural_max_capacity: 21000, priority: Critical, target_wage: 45.0),
+                    (recipe_key: "recipe_household_chemicals", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 35.0),
+                    (recipe_key: "recipe_cosmetics", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 45000000.0,
+            ),
+            (
+                company_id: 39,
+                sector_kind: HighTech,
+                lines: [
+                    (recipe_key: "recipe_semiconductors", installed_capacity: 5000, natural_max_capacity: 15000, priority: Critical, target_wage: 55.0),
+                    (recipe_key: "recipe_electronic_components", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 50.0),
+                ],
+                is_priority_development_zone: true,
+                local_reserve: 40000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 42.0),
+                    (recipe_key: "recipe_polymer_synthesis", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 40.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 35000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1200, wage_per_worker: 1100.0),
+            (key: "public_school", level: 1200, wage_per_worker: 1150.0),
+            (key: "state_university", level: 1100, wage_per_worker: 1600.0),
+            (key: "regional_hospital", level: 1150, wage_per_worker: 1500.0),
+            (key: "police_department", level: 950, wage_per_worker: 1200.0),
+            (key: "fire_and_rescue_station", level: 800, wage_per_worker: 1100.0),
+            (key: "government_center", level: 1100, wage_per_worker: 1600.0),
+            (key: "commercial_bank", level: 1400, wage_per_worker: 1700.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 7500000, base_rent: 400.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 3000000, base_rent: 680.0),
+        ],
+    ),
+
+    (
+        id: 419,
+        owner: "CHN",
+        infrastructure_level: 1.75,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 35.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 38.0),
+                    (recipe_key: "recipe_polymer_synthesis", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 28000000.0,
+            ),
+            (
+                company_id: 38,
+                sector_kind: Consumer,
+                lines: [
+                    (recipe_key: "recipe_automobiles", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 40.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+            (
+                company_id: 34,
+                sector_kind: HeavyIndustry,
+                lines: [
+                    (recipe_key: "recipe_steel_smelting", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 38.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 24000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 750, wage_per_worker: 900.0),
+            (key: "public_school", level: 750, wage_per_worker: 950.0),
+            (key: "state_university", level: 600, wage_per_worker: 1300.0),
+            (key: "regional_hospital", level: 700, wage_per_worker: 1200.0),
+            (key: "police_department", level: 600, wage_per_worker: 950.0),
+            (key: "fire_and_rescue_station", level: 500, wage_per_worker: 900.0),
+            (key: "government_center", level: 600, wage_per_worker: 1300.0),
+            (key: "commercial_bank", level: 750, wage_per_worker: 1300.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 4500000, base_rent: 280.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 1200000, base_rent: 450.0),
+        ],
+    ),
+
+    (
+        id: 420,
+        owner: "CHN",
+        infrastructure_level: 1.45,
+        facilities: [
+            (
+                company_id: 35,
+                sector_kind: Energy,
+                lines: [
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 30.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 18000000.0,
+            ),
+            (
+                company_id: 31,
+                sector_kind: Petrochemistry,
+                lines: [
+                    (recipe_key: "recipe_rubber_production", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 32.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+            (
+                company_id: 32,
+                sector_kind: Agro,
+                lines: [
+                    (recipe_key: "recipe_industrial_crops", installed_capacity: 4500, natural_max_capacity: 13500, priority: High, target_wage: 24.0),
+                    (recipe_key: "recipe_fishing", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 24.0),
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 20000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 550, wage_per_worker: 780.0),
+            (key: "public_school", level: 550, wage_per_worker: 820.0),
+            (key: "state_university", level: 350, wage_per_worker: 1050.0),
+            (key: "regional_hospital", level: 500, wage_per_worker: 1000.0),
+            (key: "police_department", level: 450, wage_per_worker: 820.0),
+            (key: "fire_and_rescue_station", level: 350, wage_per_worker: 780.0),
+            (key: "government_center", level: 400, wage_per_worker: 1050.0),
+            (key: "commercial_bank", level: 450, wage_per_worker: 1050.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 5000000, base_rent: 180.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 700000, base_rent: 260.0),
+        ],
+    ),
+    (
+        id: 421,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 20,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_oil_drilling", installed_capacity: 8000, natural_max_capacity: 24000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_gas_extraction", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_industrial_crops", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 65.0)
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 1900, wage_per_worker: 1500.0),
+            (key: "public_school", level: 1900, wage_per_worker: 1600.0),
+            (key: "state_university", level: 950, wage_per_worker: 2000.0),
+            (key: "regional_hospital", level: 1900, wage_per_worker: 1800.0),
+            (key: "police_department", level: 1900, wage_per_worker: 1600.0),
+            (key: "fire_and_rescue_station", level: 950, wage_per_worker: 1500.0),
+            (key: "government_center", level: 1900, wage_per_worker: 1900.0),
+            (key: "commercial_bank", level: 1900, wage_per_worker: 1900.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 9500000, base_rent: 450.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 2375000, base_rent: 650.0),
+        ],
+    ),
+    (
+        id: 422,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 20,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_copper_quarry", installed_capacity: 3000, natural_max_capacity: 9000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_livestock_farming", installed_capacity: 3000, natural_max_capacity: 9000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 1500, natural_max_capacity: 4500, priority: High, target_wage: 65.0)
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 260, wage_per_worker: 1500.0),
+            (key: "public_school", level: 260, wage_per_worker: 1600.0),
+            (key: "state_university", level: 130, wage_per_worker: 2000.0),
+            (key: "regional_hospital", level: 260, wage_per_worker: 1800.0),
+            (key: "police_department", level: 260, wage_per_worker: 1600.0),
+            (key: "fire_and_rescue_station", level: 130, wage_per_worker: 1500.0),
+            (key: "government_center", level: 260, wage_per_worker: 1900.0),
+            (key: "commercial_bank", level: 260, wage_per_worker: 1900.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 1300000, base_rent: 450.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 325000, base_rent: 650.0),
+        ],
+    ),
+    (
+        id: 423,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 20,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_stone_quarry", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 3000, natural_max_capacity: 9000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_livestock_farming", installed_capacity: 3000, natural_max_capacity: 9000, priority: High, target_wage: 65.0)
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 520, wage_per_worker: 1500.0),
+            (key: "public_school", level: 520, wage_per_worker: 1600.0),
+            (key: "state_university", level: 260, wage_per_worker: 2000.0),
+            (key: "regional_hospital", level: 520, wage_per_worker: 1800.0),
+            (key: "police_department", level: 520, wage_per_worker: 1600.0),
+            (key: "fire_and_rescue_station", level: 260, wage_per_worker: 1500.0),
+            (key: "government_center", level: 520, wage_per_worker: 1900.0),
+            (key: "commercial_bank", level: 520, wage_per_worker: 1900.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 2600000, base_rent: 450.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 650000, base_rent: 650.0),
+        ],
+    ),
+    (
+        id: 424,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 20,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_coal_mine", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_grain_farming", installed_capacity: 3000, natural_max_capacity: 9000, priority: High, target_wage: 65.0)
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 560, wage_per_worker: 1500.0),
+            (key: "public_school", level: 560, wage_per_worker: 1600.0),
+            (key: "state_university", level: 280, wage_per_worker: 2000.0),
+            (key: "regional_hospital", level: 560, wage_per_worker: 1800.0),
+            (key: "police_department", level: 560, wage_per_worker: 1600.0),
+            (key: "fire_and_rescue_station", level: 280, wage_per_worker: 1500.0),
+            (key: "government_center", level: 560, wage_per_worker: 1900.0),
+            (key: "commercial_bank", level: 560, wage_per_worker: 1900.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 2800000, base_rent: 450.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 700000, base_rent: 650.0),
+        ],
+    ),
+    (
+        id: 425,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 20,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_fishing", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_industrial_crops", installed_capacity: 4000, natural_max_capacity: 12000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_oil_refining", installed_capacity: 3000, natural_max_capacity: 9000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 2500, natural_max_capacity: 7500, priority: High, target_wage: 65.0)
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 790, wage_per_worker: 1500.0),
+            (key: "public_school", level: 790, wage_per_worker: 1600.0),
+            (key: "state_university", level: 395, wage_per_worker: 2000.0),
+            (key: "regional_hospital", level: 790, wage_per_worker: 1800.0),
+            (key: "police_department", level: 790, wage_per_worker: 1600.0),
+            (key: "fire_and_rescue_station", level: 395, wage_per_worker: 1500.0),
+            (key: "government_center", level: 790, wage_per_worker: 1900.0),
+            (key: "commercial_bank", level: 790, wage_per_worker: 1900.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 3950000, base_rent: 450.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 987500, base_rent: 650.0),
+        ],
+    ),
+    (
+        id: 426,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 20,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_digital_platforms", installed_capacity: 6000, natural_max_capacity: 18000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_cloud_hosting", installed_capacity: 5000, natural_max_capacity: 15000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 3500, natural_max_capacity: 10500, priority: High, target_wage: 65.0)
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 670, wage_per_worker: 1500.0),
+            (key: "public_school", level: 670, wage_per_worker: 1600.0),
+            (key: "state_university", level: 335, wage_per_worker: 2000.0),
+            (key: "regional_hospital", level: 670, wage_per_worker: 1800.0),
+            (key: "police_department", level: 670, wage_per_worker: 1600.0),
+            (key: "fire_and_rescue_station", level: 335, wage_per_worker: 1500.0),
+            (key: "government_center", level: 670, wage_per_worker: 1900.0),
+            (key: "commercial_bank", level: 670, wage_per_worker: 1900.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 3350000, base_rent: 450.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 837500, base_rent: 650.0),
+        ],
+    ),
+    (
+        id: 427,
+        owner: "CHN",
+        infrastructure_level: 1.65,
+        facilities: [
+            (
+                company_id: 20,
+                sector_kind: Extraction,
+                lines: [
+                    (recipe_key: "recipe_digital_platforms", installed_capacity: 2000, natural_max_capacity: 6000, priority: High, target_wage: 65.0),
+                    (recipe_key: "recipe_basic_electricity", installed_capacity: 1000, natural_max_capacity: 3000, priority: High, target_wage: 65.0)
+                ],
+                is_priority_development_zone: false,
+                local_reserve: 25000000.0,
+            ),
+        ],
+        structures: [
+            (key: "transport_network", level: 43, wage_per_worker: 1500.0),
+            (key: "public_school", level: 43, wage_per_worker: 1600.0),
+            (key: "state_university", level: 21, wage_per_worker: 2000.0),
+            (key: "regional_hospital", level: 43, wage_per_worker: 1800.0),
+            (key: "police_department", level: 43, wage_per_worker: 1600.0),
+            (key: "fire_and_rescue_station", level: 21, wage_per_worker: 1500.0),
+            (key: "government_center", level: 43, wage_per_worker: 1900.0),
+            (key: "commercial_bank", level: 43, wage_per_worker: 1900.0),
+        ],
+        real_estate: [
+            (kind: ResidentialHousing, owner_company_id: Some(55), total_units: 215000, base_rent: 450.0),
+            (kind: CommercialOffice, owner_company_id: Some(55), total_units: 53750, base_rent: 650.0),
+        ],
+    )
+]

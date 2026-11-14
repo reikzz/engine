@@ -1,0 +1,322 @@
+[
+    (
+        key: "recipe_furniture",
+        sector: Consumer,
+        inputs: [
+            ("timber", 8.0),
+            ("synthetics", 1.0),
+        ],
+        outputs: [
+            ("furniture", 6.0),
+        ],
+        base_expansion_cost: 60000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 30),
+            ("professionals", 2),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 350.0),
+            ("steel", 40.0),
+        ],
+        construction_workforce: [
+            ("workers", 140),
+            ("engineers", 15),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_textiles",
+        sector: Consumer,
+        inputs: [
+            ("industrial_crops", 6.0),
+            ("synthetics", 2.0),
+        ],
+        outputs: [
+            ("textiles", 8.0),
+        ],
+        base_expansion_cost: 60000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 35),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 350.0),
+            ("steel", 40.0),
+        ],
+        construction_workforce: [
+            ("workers", 150),
+            ("engineers", 15),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_household_chemicals",
+        sector: Consumer,
+        inputs: [
+            ("polymers", 2.0),
+            ("natural_gas", 2.0),
+        ],
+        outputs: [
+            ("household_chemicals", 8.0),
+        ],
+        base_expansion_cost: 60000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 25),
+            ("professionals", 2),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        construction_workforce: [
+            ("workers", 160),
+            ("engineers", 25),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_cosmetics",
+        sector: Consumer,
+        inputs: [
+            ("industrial_crops", 3.0),
+            ("polymers", 1.0),
+        ],
+        outputs: [
+            ("cosmetics", 2.0),
+        ],
+        base_expansion_cost: 50000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 10),
+            ("professionals", 8),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 300.0),
+            ("steel", 30.0),
+        ],
+        construction_workforce: [
+            ("workers", 120),
+            ("engineers", 20),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_smartphones",
+        sector: HighTech,
+        inputs: [
+            ("semiconductors", 1.0),
+            ("electronic_components", 1.0),
+            ("polymers", 1.0),
+        ],
+        outputs: [
+            ("smartphones", 4.0),
+        ],
+        base_expansion_cost: 160000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 20),
+            ("engineers", 15),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 800.0),
+            ("steel", 150.0),
+        ],
+        construction_workforce: [
+            ("workers", 250),
+            ("engineers", 50),
+        ],
+        build_time_days: 60.0,
+        required_tech: Some("tech_telecommunications"),
+    ),
+    (
+        key: "recipe_computers",
+        sector: HighTech,
+        inputs: [
+            ("semiconductors", 1.0),
+            ("electronic_components", 2.0),
+            ("aluminum", 1.0),
+            ("industrial_machinery", 0.5),
+        ],
+        outputs: [
+            ("computers", 4.0),
+        ],
+        base_expansion_cost: 180000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 25),
+            ("engineers", 20),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 800.0),
+            ("steel", 150.0),
+        ],
+        construction_workforce: [
+            ("workers", 250),
+            ("engineers", 50),
+        ],
+        build_time_days: 60.0,
+        required_tech: Some("tech_microelectronics"),
+    ),
+    (
+        key: "recipe_automobiles",
+        sector: Automotive,
+        inputs: [
+            ("steel", 2.0),
+            ("aluminum", 1.0),
+            ("engines", 1.0),
+            ("electronic_components", 1.0),
+            ("rubber", 1.0),
+            ("industrial_machinery", 0.5),
+        ],
+        outputs: [
+            ("automobiles", 2.0),
+        ],
+        base_expansion_cost: 200000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 35),
+            ("engineers", 10),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 1200.0),
+            ("steel", 300.0),
+        ],
+        construction_workforce: [
+            ("workers", 400),
+            ("engineers", 60),
+        ],
+        build_time_days: 75.0,
+        required_tech: Some("tech_automotive_industry"),
+    ),
+    (
+        key: "recipe_trucks",
+        sector: Automotive,
+        inputs: [
+            ("steel", 3.0),
+            ("engines", 1.0),
+            ("rubber", 2.0),
+            ("electronic_components", 1.0),
+            ("industrial_machinery", 0.5),
+        ],
+        outputs: [
+            ("trucks", 2.0),
+        ],
+        base_expansion_cost: 200000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 35),
+            ("engineers", 10),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 1200.0),
+            ("steel", 300.0),
+        ],
+        construction_workforce: [
+            ("workers", 350),
+            ("engineers", 50),
+        ],
+        build_time_days: 60.0,
+        required_tech: Some("tech_automotive_industry"),
+    ),
+    (
+        key: "recipe_buses",
+        sector: Automotive,
+        inputs: [
+            ("steel", 3.0),
+            ("engines", 1.0),
+            ("rubber", 2.0),
+            ("electronic_components", 1.0),
+            ("industrial_machinery", 0.5),
+        ],
+        outputs: [
+            ("buses", 2.0),
+        ],
+        base_expansion_cost: 200000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 35),
+            ("engineers", 10),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 1200.0),
+            ("steel", 300.0),
+        ],
+        construction_workforce: [
+            ("workers", 300),
+            ("engineers", 45),
+        ],
+        build_time_days: 60.0,
+        required_tech: Some("tech_automotive_industry"),
+    ),
+    (
+        key: "recipe_tractors",
+        sector: Automotive,
+        inputs: [
+            ("steel", 2.0),
+            ("engines", 1.0),
+            ("rubber", 1.0),
+            ("industrial_machinery", 0.5),
+        ],
+        outputs: [
+            ("tractors", 2.0),
+        ],
+        base_expansion_cost: 160000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 30),
+            ("engineers", 8),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 1000.0),
+            ("steel", 200.0),
+        ],
+        construction_workforce: [
+            ("workers", 300),
+            ("engineers", 45),
+        ],
+        build_time_days: 45.0,
+        required_tech: Some("tech_combustion_engine"),
+    ),
+    (
+        key: "recipe_trains",
+        sector: HeavyIndustry,
+        inputs: [
+            ("steel", 5.0),
+            ("engines", 1.0),
+            ("electronic_components", 1.0),
+            ("industrial_machinery", 1.0),
+        ],
+        outputs: [
+            ("trains", 1.0),
+        ],
+        base_expansion_cost: 250000.0,
+        workforce_requirements: [
+            ("service_workers", 20),
+            ("workers", 50),
+            ("engineers", 15),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 1500.0),
+            ("steel", 500.0),
+        ],
+        construction_workforce: [
+            ("workers", 450),
+            ("engineers", 70),
+        ],
+        build_time_days: 90.0,
+        required_tech: Some("tech_heavy_machinery"),
+    )
+]

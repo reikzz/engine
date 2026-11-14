@@ -1,0 +1,86 @@
+[
+    (
+        key: "recipe_software_development",
+        sector: InformationTechnology,
+        inputs: [
+            ("computers", 0.5),
+            ("electricity", 1.5),
+            ("semiconductors", 0.5),
+        ],
+        outputs: [
+            ("software", 4.0),
+        ],
+        base_expansion_cost: 120000.0,
+        workforce_requirements: [
+            ("engineers", 25),
+            ("professionals", 15),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        construction_workforce: [
+            ("workers", 120),
+            ("engineers", 25),
+        ],
+        build_time_days: 45.0,
+        required_tech: Some("tech_basic_electronics"),
+    ),
+    (
+        key: "recipe_cloud_hosting",
+        sector: InformationTechnology,
+        inputs: [
+            ("computers", 1.5),
+            ("semiconductors", 2.0),
+            ("electricity", 15.0),
+        ],
+        outputs: [
+            ("cloud_services", 8.0),
+        ],
+        base_expansion_cost: 200000.0,
+        workforce_requirements: [
+            ("engineers", 15),
+            ("service_workers", 10),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 800.0),
+            ("steel", 150.0),
+        ],
+        construction_workforce: [
+            ("workers", 200),
+            ("engineers", 40),
+        ],
+        build_time_days: 60.0,
+        required_tech: Some("tech_basic_electronics"),
+    ),
+    (
+        key: "recipe_digital_platforms",
+        sector: InformationTechnology,
+        inputs: [
+            ("software", 1.0),
+            ("cloud_services", 2.0),
+            ("electronic_components", 0.5),
+        ],
+        outputs: [
+            ("digital_services", 6.0),
+        ],
+        base_expansion_cost: 150000.0,
+        workforce_requirements: [
+            ("professionals", 20),
+            ("service_workers", 15),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 60.0),
+        ],
+        construction_workforce: [
+            ("workers", 120),
+            ("engineers", 25),
+        ],
+        build_time_days: 45.0,
+        required_tech: Some("tech_basic_electronics"),
+    ),
+]

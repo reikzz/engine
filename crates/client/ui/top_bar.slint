@@ -1,0 +1,279 @@
+import { Theme } from "theme.slint";
+
+component SpeedButton inherits Rectangle {
+    in property <string> text;
+    in property <bool> is_active: false;
+    callback clicked;
+
+    width: 28px;
+    height: 24px;
+    background: is_active ? Theme.surface_active : (touch.has_hover ? Theme.surface_card_hover : #00000000);
+    border-width: 1px;
+    border-color: is_active ? Theme.accent_amber : (touch.has_hover ? Theme.border_inner : #00000000);
+
+    touch := TouchArea {
+        clicked => { root.clicked(); }
+    }
+
+    Text {
+        text: root.text;
+        color: is_active ? Theme.text_gold : (touch.has_hover ? Theme.text_primary : Theme.text_muted);
+        font-size: 10px;
+        font-weight: 700;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+
+    if root.is_active : Rectangle {
+        y: parent.height - 2px;
+        height: 2px;
+        background: Theme.accent_amber;
+    }
+}
+
+component StatBlock inherits Rectangle {
+    in property <string> label;
+    in property <string> value;
+    in property <color> value_color: Theme.text_primary;
+    in property <color> indicator_color: Theme.accent_gold;
+
+    height: 28px;
+    background: Theme.surface_inset;
+    border-width: 1px;
+    border-color: Theme.border_outer;
+
+    HorizontalLayout {
+        padding-left: 8px;
+        padding-right: 10px;
+        spacing: 8px;
+        alignment: center;
+
+        Rectangle {
+            width: 3px;
+            height: 14px;
+            background: root.indicator_color;
+        }
+
+        Text {
+            text: root.label;
+            color: Theme.text_muted;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            vertical-alignment: center;
+        }
+
+        Text {
+            text: root.value;
+            color: root.value_color;
+            font-size: 12px;
+            font-weight: 800;
+            vertical-alignment: center;
+        }
+    }
+}
+
+export component TopBar inherits Rectangle {
+    in property <string> country_name: "United States";
+    in property <string> treasury_text: "$0";
+    in property <string> gdp_text: "$0";
+    in property <string> date_text: "2020-01-01 00:00";
+    in-out property <int> current_speed: 1;
+
+    callback speed_changed(int);
+
+    height: 44px;
+    background: @linear-gradient(180deg, Theme.chassis_panel_top 0%, Theme.chassis_panel_bottom 100%);
+    border-width: 1px;
+    border-color: Theme.border_outer;
+
+    Rectangle {
+        y: parent.height - 1px;
+        height: 1px;
+        background: Theme.border_inner;
+    }
+
+    Rectangle {
+        x: 0px;
+        y: 0px;
+        width: 12px;
+        height: 2px;
+        background: Theme.accent_gold;
+    }
+
+    Rectangle {
+        x: parent.width - 12px;
+        y: 0px;
+        width: 12px;
+        height: 2px;
+        background: Theme.accent_gold;
+    }
+
+    HorizontalLayout {
+        padding-left: 14px;
+        padding-right: 14px;
+        spacing: 12px;
+        alignment: space-between;
+
+        HorizontalLayout {
+            spacing: 10px;
+            alignment: start;
+
+            Rectangle {
+                height: 30px;
+                y: (parent.height - self.height) / 2;
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.accent_gold;
+
+                HorizontalLayout {
+                    padding-left: 10px;
+                    padding-right: 12px;
+                    spacing: 8px;
+                    alignment: center;
+
+                    Rectangle {
+                        width: 6px;
+                        height: 6px;
+                        background: Theme.accent_gold;
+                    }
+
+                    Text {
+                        text: root.country_name;
+                        color: Theme.text_primary;
+                        font-size: 13px;
+                        font-weight: 800;
+                        letter-spacing: 0.5px;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+
+            Rectangle {
+                width: 1px;
+                height: 18px;
+                y: (parent.height - self.height) / 2;
+                background: Theme.border_inner;
+            }
+
+            StatBlock {
+                y: (parent.height - self.height) / 2;
+                label: "GDP // NOMINAL";
+                value: root.gdp_text;
+                value_color: Theme.text_cyan;
+                indicator_color: Theme.accent_cyan;
+            }
+
+            StatBlock {
+                y: (parent.height - self.height) / 2;
+                label: "TREASURY RESERVE";
+                value: root.treasury_text;
+                value_color: Theme.text_gold;
+                indicator_color: Theme.accent_gold;
+            }
+        }
+
+        HorizontalLayout {
+            spacing: 10px;
+            alignment: end;
+
+            Rectangle {
+                height: 30px;
+                y: (parent.height - self.height) / 2;
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                HorizontalLayout {
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    spacing: 6px;
+                    alignment: center;
+
+                    Text {
+                        text: "TIME:";
+                        color: Theme.text_muted;
+                        font-size: 9px;
+                        font-weight: 800;
+                        vertical-alignment: center;
+                    }
+
+                    Text {
+                        text: root.date_text;
+                        color: Theme.text_primary;
+                        font-size: 11px;
+                        font-weight: 800;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+
+            Rectangle {
+                width: 1px;
+                height: 18px;
+                y: (parent.height - self.height) / 2;
+                background: Theme.border_inner;
+            }
+
+            Rectangle {
+                height: 30px;
+                y: (parent.height - self.height) / 2;
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                HorizontalLayout {
+                    padding: 2px;
+                    spacing: 2px;
+                    alignment: center;
+
+                    SpeedButton {
+                        text: "PAUSE";
+                        is_active: root.current_speed == 0;
+                        clicked => {
+                            root.current_speed = 0;
+                            root.speed_changed(0);
+                        }
+                    }
+
+                    SpeedButton {
+                        text: "1X";
+                        is_active: root.current_speed == 1;
+                        clicked => {
+                            root.current_speed = 1;
+                            root.speed_changed(1);
+                        }
+                    }
+
+                    SpeedButton {
+                        text: "2X";
+                        is_active: root.current_speed == 2;
+                        clicked => {
+                            root.current_speed = 2;
+                            root.speed_changed(2);
+                        }
+                    }
+
+                    SpeedButton {
+                        text: "5X";
+                        is_active: root.current_speed == 5;
+                        clicked => {
+                            root.current_speed = 5;
+                            root.speed_changed(5);
+                        }
+                    }
+
+                    SpeedButton {
+                        text: "MAX";
+                        is_active: root.current_speed == 99;
+                        clicked => {
+                            root.current_speed = 99;
+                            root.speed_changed(99);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

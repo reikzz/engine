@@ -1,0 +1,33 @@
+export struct CountryLabelItem {
+    name: string,
+    pos_x: length,
+    pos_y: length,
+    font_size: length,
+    box_width: length,
+    opacity: float,
+    visible: bool,
+}
+
+export component CountryLabelsLayer inherits Rectangle {
+    in property <[CountryLabelItem]> labels: [];
+
+    for label in root.labels: Rectangle {
+        x: label.pos_x - (label.box_width / 2);
+        y: label.pos_y - 14px;
+        width: label.box_width;
+        height: 28px;
+        opacity: label.opacity;
+        visible: label.visible;
+        clip: true;
+
+        Text {
+            text: label.name;
+            font-size: label.font_size;
+            font-weight: 800;
+            color: #ffffffee;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+            overflow: elide;
+        }
+    }
+}

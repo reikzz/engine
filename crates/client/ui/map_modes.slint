@@ -1,0 +1,173 @@
+import { Theme } from "theme.slint";
+
+component MapModeMenuItem inherits Rectangle {
+    in property <string> label;
+    in property <bool> is_active: false;
+    callback clicked;
+
+    height: 28px;
+    background: is_active ? Theme.surface_active : (touch.has_hover ? Theme.surface_card_hover : #00000000);
+
+    touch := TouchArea {
+        clicked => { root.clicked(); }
+    }
+
+    if root.is_active : Rectangle {
+        x: 0px;
+        width: 3px;
+        height: parent.height;
+        background: Theme.accent_gold;
+    }
+
+    HorizontalLayout {
+        padding-left: 10px;
+        padding-right: 10px;
+        alignment: start;
+
+        Text {
+            text: root.label;
+            color: is_active ? Theme.text_gold : (touch.has_hover ? Theme.text_primary : Theme.text_secondary);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            vertical-alignment: center;
+        }
+    }
+}
+
+export component MapModesMenu inherits Rectangle {
+    in-out property <int> active_mode: 0;
+    in-out property <bool> is_open: false;
+    callback mode_changed(int);
+
+    width: root.is_open ? 180px : 42px;
+    height: root.is_open ? 240px : 42px;
+    background: #00000000;
+
+    if root.is_open : Rectangle {
+        x: 0px;
+        y: 0px;
+        width: 180px;
+        height: 190px;
+        background: @linear-gradient(180deg, Theme.chassis_panel_top 0%, Theme.chassis_panel_bottom 100%);
+        border-width: 1px;
+        border-color: Theme.border_outer;
+
+        Rectangle {
+            x: 1px;
+            y: 1px;
+            width: parent.width - 2px;
+            height: parent.height - 2px;
+            border-width: 1px;
+            border-color: Theme.border_inner;
+            background: #00000000;
+        }
+
+        VerticalLayout {
+            padding: 4px;
+            spacing: 2px;
+            alignment: center;
+
+            MapModeMenuItem {
+                label: "POLITICAL MAP";
+                is_active: root.active_mode == 0;
+                clicked => {
+                    root.active_mode = 0;
+                    root.is_open = false;
+                    root.mode_changed(0);
+                }
+            }
+
+            MapModeMenuItem {
+                label: "POPULATION DENSITY";
+                is_active: root.active_mode == 1;
+                clicked => {
+                    root.active_mode = 1;
+                    root.is_open = false;
+                    root.mode_changed(1);
+                }
+            }
+
+            MapModeMenuItem {
+                label: "MARKET ACCESS";
+                is_active: root.active_mode == 2;
+                clicked => {
+                    root.active_mode = 2;
+                    root.is_open = false;
+                    root.mode_changed(2);
+                }
+            }
+
+            MapModeMenuItem {
+                label: "REGIONAL PRICES";
+                is_active: root.active_mode == 3;
+                clicked => {
+                    root.active_mode = 3;
+                    root.is_open = false;
+                    root.mode_changed(3);
+                }
+            }
+
+            MapModeMenuItem {
+                label: "UNEMPLOYMENT RATE";
+                is_active: root.active_mode == 4;
+                clicked => {
+                    root.active_mode = 4;
+                    root.is_open = false;
+                    root.mode_changed(4);
+                }
+            }
+
+            MapModeMenuItem {
+                label: "INFRASTRUCTURE LOAD";
+                is_active: root.active_mode == 5;
+                clicked => {
+                    root.active_mode = 5;
+                    root.is_open = false;
+                    root.mode_changed(5);
+                }
+            }
+        }
+    }
+
+    trigger := Rectangle {
+        x: parent.width - 42px;
+        y: parent.height - 42px;
+        width: 42px;
+        height: 42px;
+        background: root.is_open ? Theme.surface_active : (touch.has_hover ? Theme.surface_card_hover : Theme.surface_card);
+        border-width: 1px;
+        border-color: root.is_open ? Theme.accent_gold : (touch.has_hover ? Theme.border_inner : Theme.border_outer);
+
+        touch := TouchArea {
+            clicked => {
+                root.is_open = !root.is_open;
+            }
+        }
+
+        Rectangle {
+            x: 1px;
+            y: 1px;
+            width: parent.width - 2px;
+            height: parent.height - 2px;
+            border-width: 1px;
+            border-color: touch.has_hover ? Theme.border_inner : #00000000;
+            background: #00000000;
+        }
+
+        Text {
+            text: "MAP";
+            color: root.is_open ? Theme.text_gold : (touch.has_hover ? Theme.text_primary : Theme.text_secondary);
+            font-size: 10px;
+            font-weight: 800;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+        }
+
+        if root.is_open : Rectangle {
+            y: parent.height - 2px;
+            height: 2px;
+            background: Theme.accent_gold;
+        }
+    }
+}

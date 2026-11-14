@@ -1,0 +1,224 @@
+[
+    (
+        key: "public_school",
+        kind: BasicEducation,
+        workforce_requirements: [
+            ("professionals", 500),
+            ("service_workers", 400),
+        ],
+        base_maintenance_per_level: 15.0,
+        capacity_per_level: 50000,
+        wear_per_month: 0.005,
+        education: (
+            candidate_pop: "farmers",
+            intermediate_pop: "students",
+            graduates: [
+                ("workers", 0.7),
+                ("service_workers", 0.3),
+            ],
+            graduation_rate: 0.15,
+        ),
+        modifiers: [
+            (EducationEfficiency, 0.5),
+            (SocialStability, 0.05),
+        ],
+        maintenance_goods: [
+            ("computers", 0.05),
+            ("furniture", 0.2),
+            ("electricity", 1.5),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "state_university",
+        kind: HighEducation,
+        workforce_requirements: [
+            ("professionals", 800),
+            ("service_workers", 400),
+        ],
+        base_maintenance_per_level: 25.0,
+        capacity_per_level: 30000,
+        wear_per_month: 0.005,
+        education: (
+            candidate_pop: "workers",
+            intermediate_pop: "students",
+            graduates: [
+                ("engineers", 0.6),
+                ("professionals", 0.4),
+            ],
+            graduation_rate: 0.20,
+        ),
+        modifiers: [
+            (EducationEfficiency, 1.0),
+            (LaborProductivity, 0.05),
+        ],
+        maintenance_goods: [
+            ("computers", 0.1),
+            ("furniture", 0.2),
+            ("electricity", 2.0),
+        ],
+        construction_cost: [
+            ("construction_materials", 600.0),
+            ("steel", 100.0),
+        ],
+        build_time_days: 60.0,
+        science_output_per_level: 5.0,
+    ),
+    (
+        key: "regional_hospital",
+        kind: Health,
+        workforce_requirements: [
+            ("professionals", 1500),
+            ("service_workers", 2000),
+        ],
+        base_maintenance_per_level: 25.0,
+        capacity_per_level: 50000,
+        wear_per_month: 0.005,
+        modifiers: [
+            (PopulationGrowth, 0.000003),
+            (MortalityRate, -0.000002),
+        ],
+        maintenance_goods: [
+            ("pharmaceuticals", 0.3),
+            ("electricity", 2.5),
+        ],
+        construction_cost: [
+            ("construction_materials", 600.0),
+            ("steel", 100.0),
+        ],
+        build_time_days: 60.0,
+    ),
+    (
+        key: "police_department",
+        kind: LawEnforcement,
+        workforce_requirements: [
+            ("military_personnel", 600),
+            ("service_workers", 300),
+        ],
+        base_maintenance_per_level: 20.0,
+        capacity_per_level: 100000,
+        wear_per_month: 0.005,
+        modifiers: [
+            (CrimeRate, -0.10),
+            (SocialStability, 0.05),
+        ],
+        maintenance_goods: [
+            ("automobiles", 0.05),
+            ("fuel", 1.0),
+            ("textiles", 0.5),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "fire_and_rescue_station",
+        kind: Emergency,
+        workforce_requirements: [
+            ("workers", 600),
+            ("engineers", 400),
+            ("service_workers", 200),
+        ],
+        base_maintenance_per_level: 15.0,
+        capacity_per_level: 100000,
+        wear_per_month: 0.005,
+        modifiers: [
+            (DisasterLossReduction, 0.20),
+        ],
+        maintenance_goods: [
+            ("trucks", 0.03),
+            ("fuel", 1.0),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "government_center",
+        kind: Administration,
+        workforce_requirements: [
+            ("state_employees", 2500),
+            ("professionals", 500),
+            ("service_workers", 500),
+        ],
+        base_maintenance_per_level: 20.0,
+        capacity_per_level: 100000,
+        wear_per_month: 0.005,
+        modifiers: [
+            (TaxEfficiency, 0.05),
+        ],
+        maintenance_goods: [
+            ("computers", 0.1),
+            ("smartphones", 0.05),
+            ("electricity", 1.5),
+            ("software", 0.05),
+        ],
+        construction_cost: [
+            ("construction_materials", 500.0),
+            ("steel", 80.0),
+        ],
+        build_time_days: 60.0,
+    ),
+    (
+        key: "transport_network",
+        kind: Infrastructure,
+        workforce_requirements: [
+            ("workers", 2000),
+            ("service_workers", 1000),
+            ("engineers", 500),
+        ],
+        base_maintenance_per_level: 25.0,
+        capacity_per_level: 100000,
+        wear_per_month: 0.008,
+        modifiers: [
+            (InfrastructureCapacity, 0.25),
+            (MarketAccess, 0.10),
+        ],
+        maintenance_goods: [
+            ("bitumen", 0.5),
+            ("construction_materials", 0.5),
+            ("fuel", 1.5),
+        ],
+        construction_cost: [
+            ("construction_materials", 800.0),
+            ("steel", 150.0),
+            ("bitumen", 100.0),
+        ],
+        build_time_days: 60.0,
+    ),
+    (
+        key: "commercial_bank",
+        kind: Financial,
+        workforce_requirements: [
+            ("professionals", 800),
+            ("service_workers", 1500),
+        ],
+        base_maintenance_per_level: 30.0,
+        capacity_per_level: 100000,
+        wear_per_month: 0.005,
+        modifiers: [
+            (TaxEfficiency, 0.02),
+            (MarketAccess, 0.05),
+        ],
+        maintenance_goods: [
+            ("computers", 0.1),
+            ("electricity", 2.0),
+            ("furniture", 0.5),
+            ("software", 0.05),
+            ("cloud_services", 0.05),
+        ],
+        construction_cost: [
+            ("construction_materials", 500.0),
+            ("steel", 80.0),
+        ],
+        build_time_days: 60.0,
+    ),
+]

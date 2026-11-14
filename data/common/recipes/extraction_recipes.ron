@@ -1,0 +1,319 @@
+[
+    (
+        key: "recipe_oil_drilling",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("crude_oil", 40.0),
+            ("electricity", 10.0),
+        ],
+        base_expansion_cost: 100000.0,
+        workforce_requirements: [
+            ("workers", 40),
+            ("engineers", 8),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 500.0),
+            ("steel", 100.0),
+        ],
+        construction_workforce: [
+            ("workers", 120),
+            ("engineers", 20),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_gas_extraction",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("natural_gas", 40.0),
+        ],
+        base_expansion_cost: 80000.0,
+        workforce_requirements: [
+            ("workers", 30),
+            ("engineers", 6),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 500.0),
+            ("steel", 100.0),
+        ],
+        construction_workforce: [
+            ("workers", 100),
+            ("engineers", 15),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_coal_mine",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("coal", 30.0),
+        ],
+        base_expansion_cost: 60000.0,
+        workforce_requirements: [
+            ("workers", 50),
+            ("engineers", 4),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        construction_workforce: [
+            ("workers", 140),
+            ("engineers", 15),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_forestry",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("timber", 40.0),
+        ],
+        base_expansion_cost: 40000.0,
+        workforce_requirements: [
+            ("workers", 35),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 200.0),
+        ],
+        construction_workforce: [
+            ("workers", 80),
+            ("engineers", 5),
+        ],
+        build_time_days: 30.0,
+    ),
+    (
+        key: "recipe_stone_quarry",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("stone", 50.0),
+        ],
+        base_expansion_cost: 40000.0,
+        workforce_requirements: [
+            ("workers", 35),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 250.0),
+        ],
+        construction_workforce: [
+            ("workers", 90),
+            ("engineers", 8),
+        ],
+        build_time_days: 30.0,
+    ),
+    (
+        key: "recipe_iron_quarry",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("iron_ore", 30.0),
+        ],
+        base_expansion_cost: 60000.0,
+        workforce_requirements: [
+            ("workers", 45),
+            ("engineers", 5),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        construction_workforce: [
+            ("workers", 110),
+            ("engineers", 12),
+        ],
+        build_time_days: 30.0,
+    ),
+    (
+        key: "recipe_copper_quarry",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("copper_ore", 25.0),
+        ],
+        base_expansion_cost: 60000.0,
+        workforce_requirements: [
+            ("workers", 45),
+            ("engineers", 5),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        construction_workforce: [
+            ("workers", 110),
+            ("engineers", 12),
+        ],
+        build_time_days: 30.0,
+    ),
+    (
+        key: "recipe_bauxite_quarry",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("bauxite", 30.0),
+        ],
+        base_expansion_cost: 60000.0,
+        workforce_requirements: [
+            ("workers", 45),
+            ("engineers", 5),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 400.0),
+            ("steel", 50.0),
+        ],
+        construction_workforce: [
+            ("workers", 110),
+            ("engineers", 12),
+        ],
+        build_time_days: 30.0,
+    ),
+    (
+        key: "recipe_gold_mine",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("gold", 5.0),
+        ],
+        base_expansion_cost: 150000.0,
+        workforce_requirements: [
+            ("workers", 50),
+            ("engineers", 10),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 600.0),
+            ("steel", 100.0),
+        ],
+        construction_workforce: [
+            ("workers", 150),
+            ("engineers", 25),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_rare_earths_mining",
+        sector: Extraction,
+        inputs: [],
+        outputs: [
+            ("rare_earths", 10.0),
+        ],
+        base_expansion_cost: 120000.0,
+        workforce_requirements: [
+            ("workers", 45),
+            ("engineers", 10),
+            ("executives", 2),
+        ],
+        construction_cost: [
+            ("construction_materials", 600.0),
+            ("steel", 100.0),
+        ],
+        construction_workforce: [
+            ("workers", 140),
+            ("engineers", 20),
+        ],
+        build_time_days: 45.0,
+    ),
+    (
+        key: "recipe_fishing",
+        sector: Agro,
+        inputs: [],
+        outputs: [
+            ("fish", 25.0),
+        ],
+        base_expansion_cost: 40000.0,
+        workforce_requirements: [
+            ("workers", 25),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 150.0),
+        ],
+        construction_workforce: [
+            ("workers", 60),
+            ("engineers", 5),
+        ],
+        build_time_days: 30.0,
+    ),
+    (
+        key: "recipe_grain_farming",
+        sector: Agro,
+        inputs: [],
+        outputs: [
+            ("grain", 30.0),
+        ],
+        base_expansion_cost: 50000.0,
+        workforce_requirements: [
+            ("farmers", 60),
+            ("workers", 10),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 200.0),
+        ],
+        construction_workforce: [
+            ("workers", 80),
+            ("engineers", 6),
+        ],
+        build_time_days: 30.0,
+    ),
+    (
+        key: "recipe_industrial_crops",
+        sector: Agro,
+        inputs: [],
+        outputs: [
+            ("industrial_crops", 25.0),
+        ],
+        base_expansion_cost: 45000.0,
+        workforce_requirements: [
+            ("farmers", 50),
+            ("workers", 10),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 200.0),
+        ],
+        construction_workforce: [
+            ("workers", 80),
+            ("engineers", 6),
+        ],
+        build_time_days: 30.0,
+    ),
+    (
+        key: "recipe_basic_electricity",
+        sector: Energy,
+        inputs: [
+            ("coal", 4.0),
+        ],
+        outputs: [
+            ("electricity", 25.0),
+        ],
+        base_expansion_cost: 100000.0,
+        workforce_requirements: [
+            ("workers", 40),
+            ("engineers", 10),
+            ("executives", 1),
+        ],
+        construction_cost: [
+            ("construction_materials", 600.0),
+            ("steel", 100.0),
+        ],
+        construction_workforce: [
+            ("workers", 160),
+            ("engineers", 25),
+        ],
+        build_time_days: 45.0,
+    ),
+]

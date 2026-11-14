@@ -77,6 +77,9 @@ export component TopBar inherits Rectangle {
     in property <string> country_name: "United States";
     in property <string> treasury_text: "$0";
     in property <string> gdp_text: "$0";
+    in property <string> inflation_text: "+0.0%";
+    in property <color> inflation_color: Theme.accent_emerald;
+    in property <string> central_bank_rate_text: "5.00%";
     in property <string> date_text: "2020-01-01 00:00";
     in-out property <int> current_speed: 1;
 
@@ -170,6 +173,22 @@ export component TopBar inherits Rectangle {
                 value: root.treasury_text;
                 value_color: Theme.text_gold;
                 indicator_color: Theme.accent_gold;
+            }
+
+            StatBlock {
+                y: (parent.height - self.height) / 2;
+                label: "INFLATION";
+                value: root.inflation_text;
+                value_color: root.inflation_color;
+                indicator_color: root.inflation_color;
+            }
+
+            StatBlock {
+                y: (parent.height - self.height) / 2;
+                label: "KEY RATE";
+                value: root.central_bank_rate_text;
+                value_color: Theme.text_cyan;
+                indicator_color: Theme.accent_cyan;
             }
         }
 

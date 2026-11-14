@@ -35,11 +35,17 @@ export component CountryPanel inherits ChassisFrame {
     in property <string> population_text: "0";
     in property <string> employment_text: "0";
     in property <string> regions_count_text: "0";
+    in property <string> cpi_text: "100.0";
+    in property <string> inflation_text: "+0.0%";
+    in property <color> inflation_color: Theme.accent_emerald;
+    in property <string> central_bank_rate_text: "5.00%";
+    in property <string> real_rate_text: "+0.00%";
 
     callback close_clicked();
+    callback adjust_rate_clicked(float);
 
     width: 320px;
-    height: 310px;
+    height: 480px;
 
     VerticalLayout {
         padding: 12px;
@@ -169,6 +175,89 @@ export component CountryPanel inherits ChassisFrame {
                         label: "PROVINCIAL REGIONS";
                         value: root.regions_count_text;
                         value_color: Theme.text_gold;
+                    }
+                }
+            }
+        }
+
+        VerticalLayout {
+            spacing: 6px;
+
+            SectionHeader {
+                title: "CENTRAL BANK // MONETARY POLICY";
+                code: "MON-01";
+                badge_color: Theme.accent_amber;
+            }
+
+            Rectangle {
+                background: Theme.surface_inset;
+                border-width: 1px;
+                border-color: Theme.border_outer;
+
+                VerticalLayout {
+                    padding: 8px;
+                    spacing: 4px;
+
+                    PanelStatRow {
+                        label: "KEY REFINANCE RATE";
+                        value: root.central_bank_rate_text;
+                        value_color: Theme.accent_amber;
+                    }
+
+                    PanelStatRow {
+                        label: "ANNUAL INFLATION";
+                        value: root.inflation_text;
+                        value_color: root.inflation_color;
+                    }
+
+                    PanelStatRow {
+                        label: "REAL INTEREST RATE";
+                        value: root.real_rate_text;
+                        value_color: Theme.text_cyan;
+                    }
+
+                    PanelStatRow {
+                        label: "CONSUMER PRICE INDEX";
+                        value: root.cpi_text;
+                        value_color: Theme.text_secondary;
+                    }
+
+                    Rectangle {
+                        height: 1px;
+                        background: Theme.border_inner;
+                    }
+
+                    HorizontalLayout {
+                        spacing: 4px;
+                        alignment: center;
+
+                        TacticalButton {
+                            width: 66px;
+                            height: 22px;
+                            text: "-1.00%";
+                            clicked => { root.adjust_rate_clicked(-0.01); }
+                        }
+
+                        TacticalButton {
+                            width: 66px;
+                            height: 22px;
+                            text: "-0.25%";
+                            clicked => { root.adjust_rate_clicked(-0.0025); }
+                        }
+
+                        TacticalButton {
+                            width: 66px;
+                            height: 22px;
+                            text: "+0.25%";
+                            clicked => { root.adjust_rate_clicked(0.0025); }
+                        }
+
+                        TacticalButton {
+                            width: 66px;
+                            height: 22px;
+                            text: "+1.00%";
+                            clicked => { root.adjust_rate_clicked(0.01); }
+                        }
                     }
                 }
             }

@@ -32,6 +32,7 @@ pub struct UiManager {
     region_panel_closed: Rc<Cell<bool>>,
     active_region_id: Rc<Cell<Option<u16>>>,
     active_country_tag: Rc<RefCell<String>>,
+    active_central_bank_rate: Rc<Cell<f64>>,
     last_inspected_region_id: Option<u16>,
     last_region_ticks: u64,
     last_market_modal_open: bool,
@@ -78,6 +79,23 @@ impl UiManager {
 
         let active_region_id = Rc::new(Cell::new(None));
         let active_country_tag = Rc::new(RefCell::new("USA".to_string()));
+        let active_central_bank_rate = Rc::new(Cell::new(0.05));
+
+        let cmd_tx_rate = command_sender.clone();
+        let country_rate = active_country_tag.clone();
+        let rate_cell_clone = active_central_bank_rate.clone();
+        main_window.on_adjust_central_bank_rate_requested(move |delta| {
+            let tag_str = country_rate.borrow().clone();
+            if let Ok(country) = CountryTag::try_from(tag_str.as_str()) {
+                let cur = rate_cell_clone.get();
+                let new_rate = (cur + delta as f64).clamp(0.0, 0.30);
+                rate_cell_clone.set(new_rate);
+                let _ = cmd_tx_rate.send(ClientCommand::SetCentralBankRate {
+                    country,
+                    target_rate: new_rate,
+                });
+            }
+        });
 
         let cmd_tx = command_sender.clone();
         main_window.on_speed_changed(move |speed_val| {
@@ -156,6 +174,7 @@ impl UiManager {
             region_panel_closed: closed_region_cell,
             active_region_id,
             active_country_tag,
+            active_central_bank_rate,
             last_inspected_region_id: None,
             last_region_ticks: u64::MAX,
             last_market_modal_open: false,
@@ -281,6 +300,7 @@ impl UiManager {
             .set_country_name(SharedString::from(active_country_name));
 
         if let Some(country) = snapshot.countries.get(active_country) {
+            self.active_central_bank_rate.set(country.central_bank_rate);
             let treasury_formatted =
                 format_compact_currency(&country.currency_symbol, country.treasury);
             let gdp_formatted =
@@ -290,6 +310,16 @@ impl UiManager {
                 .set_treasury_text(SharedString::from(treasury_formatted));
             self.main_window
                 .set_gdp_text(SharedString::from(gdp_formatted));
+
+            let (infl_text, infl_color) = format_inflation(country.inflation_rate);
+            self.main_window
+                .set_inflation_text(SharedString::from(infl_text));
+            self.main_window.set_inflation_color(infl_color);
+            self.main_window
+                .set_central_bank_rate_text(SharedString::from(format!(
+                    "{:.2}%",
+                    country.central_bank_rate * 100.0
+                )));
         }
 
         if let Some((tag, display_name)) = inspected_country {
@@ -334,6 +364,26 @@ impl UiManager {
                     .set_inspected_employment(SharedString::from(emp_formatted));
                 self.main_window
                     .set_inspected_regions(SharedString::from(format!("{}", regions_count)));
+
+                let (inspected_infl_text, inspected_infl_color) =
+                    format_inflation(country.inflation_rate);
+                let real_rate_val = country.real_interest_rate;
+                let real_prefix = if real_rate_val >= 0.0 { "+" } else { "" };
+                let real_rate_text = format!("{}{:.2}%", real_prefix, real_rate_val * 100.0);
+
+                self.main_window
+                    .set_inspected_cpi(SharedString::from(format!("{:.1}", country.cpi)));
+                self.main_window
+                    .set_inspected_inflation(SharedString::from(inspected_infl_text));
+                self.main_window
+                    .set_inspected_inflation_color(inspected_infl_color);
+                self.main_window
+                    .set_inspected_central_bank_rate(SharedString::from(format!(
+                        "{:.2}%",
+                        country.central_bank_rate * 100.0
+                    )));
+                self.main_window
+                    .set_inspected_real_rate(SharedString::from(real_rate_text));
             }
         } else {
             self.main_window.set_country_menu_open(false);
@@ -648,7 +698,7 @@ impl UiManager {
             let panel_x = 14.0f32;
             let panel_y = 88.0f32;
             let panel_width = 320.0f32;
-            let panel_height = 310.0f32;
+            let panel_height = 490.0f32;
             if x >= panel_x
                 && x <= panel_x + panel_width
                 && y >= panel_y
@@ -740,4 +790,20 @@ fn format_compact_number(value: f64) -> String {
     } else {
         format!("{sign}{:.1}{suffix}", scaled)
     }
+}
+
+fn format_inflation(rate: f64) -> (String, slint::Color) {
+    let pct = rate * 100.0;
+    let prefix = if pct >= 0.0 { "+" } else { "" };
+    let text = format!("{prefix}{:.1}%", pct);
+    let color = if rate < 0.0 {
+        slint::Color::from_rgb_u8(56, 189, 248)
+    } else if rate <= 0.04 {
+        slint::Color::from_rgb_u8(52, 211, 153)
+    } else if rate <= 0.08 {
+        slint::Color::from_rgb_u8(251, 191, 36)
+    } else {
+        slint::Color::from_rgb_u8(248, 113, 113)
+    };
+    (text, color)
 }

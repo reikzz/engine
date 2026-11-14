@@ -89,7 +89,7 @@ impl System for BankingSystem {
         self.collect_state_bank_dividends(countries, companies);
         self.distribute_deposit_interest(countries, regions, companies);
         self.process_consumer_banking(countries, regions, companies);
-        self.process_working_capital_loans(companies, loans);
+        self.process_working_capital_loans(countries, companies, loans);
         self.process_state_recapitalization(companies, countries);
     }
 }
@@ -344,6 +344,7 @@ impl BankingSystem {
 
     fn process_working_capital_loans(
         &mut self,
+        countries: &[Country],
         companies: &mut [CompanyState],
         loans: &mut Vec<BankLoan>,
     ) {
@@ -389,10 +390,17 @@ impl BankingSystem {
                 let needed_loan =
                     (comp.monthly_expenses * 0.5).clamp(25_000.0 * ex_rate, 500_000.0 * ex_rate);
                 let country_tag = comp.country_tag;
-                let _ = BankLoan::request_corporate_loan(
+                let loan_rate = self
+                    .tag_to_country_idx
+                    .get(&country_tag)
+                    .and_then(|&idx| countries.get(idx))
+                    .map(|c| (c.economy.central_bank_rate + 0.03).clamp(0.01, 0.40))
+                    .unwrap_or(0.08);
+                let _ = BankLoan::request_corporate_loan_with_rate(
                     comp_idx,
                     needed_loan,
                     country_tag,
+                    loan_rate,
                     companies,
                     loans,
                 );

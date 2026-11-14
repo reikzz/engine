@@ -372,3 +372,45 @@ fn test_format_compact_currency(symbol: &str, value: f64) -> String {
         format!("{}{:.0}", symbol, abs_val)
     }
 }
+
+#[test]
+fn test_monetary_policy_command_and_snapshot_defaults() {
+    let snapshot = client::bridge::snapshot::CountrySnapshot {
+        tag: "USA".to_string(),
+        currency_symbol: "$".to_string(),
+        treasury: 100_000.0,
+        national_debt: 50_000.0,
+        total_population: 1_000_000,
+        employed_population: 800_000,
+        nominal_gdp: 5_000_000.0,
+        corporate_tax: 0.20,
+        income_tax: 0.15,
+        tariff_rate: 0.05,
+        central_bank_rate: 0.05,
+        cpi: 102.4,
+        inflation_rate: 0.024,
+        real_interest_rate: 0.026,
+    };
+
+    assert_eq!(snapshot.tag, "USA");
+    assert!((snapshot.central_bank_rate - 0.05).abs() < 1e-6);
+    assert!((snapshot.cpi - 102.4).abs() < 1e-6);
+    assert!((snapshot.inflation_rate - 0.024).abs() < 1e-6);
+    assert!((snapshot.real_interest_rate - 0.026).abs() < 1e-6);
+
+    let cmd = client::bridge::commands::ClientCommand::SetCentralBankRate {
+        country: engine_core::world::CountryTag::new("USA"),
+        target_rate: 0.065,
+    };
+
+    match cmd {
+        client::bridge::commands::ClientCommand::SetCentralBankRate {
+            country,
+            target_rate,
+        } => {
+            assert_eq!(country.as_str(), "USA");
+            assert!((target_rate - 0.065).abs() < 1e-6);
+        }
+        _ => panic!("Expected SetCentralBankRate command"),
+    }
+}

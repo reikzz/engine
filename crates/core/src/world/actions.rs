@@ -28,6 +28,20 @@ impl World {
         Ok(())
     }
 
+    pub fn set_central_bank_rate(
+        &mut self,
+        country_tag: CountryTag,
+        target_rate: f64,
+    ) -> Result<f64, String> {
+        let country = self
+            .country_mut(country_tag)
+            .ok_or_else(|| format!("Country {:?} not found", country_tag))?;
+
+        let clamped_rate = target_rate.clamp(0.0, 0.30);
+        country.economy.central_bank_rate = clamped_rate;
+        Ok(clamped_rate)
+    }
+
     pub fn set_welfare_policy(
         &mut self,
         country_tag: CountryTag,

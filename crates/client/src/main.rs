@@ -1,12 +1,5 @@
-mod app;
-mod bridge;
-mod debug;
-mod map;
-mod render;
-mod ui;
-
-use app::App;
-use bridge::SimulationWorker;
+use client::app::App;
+use client::bridge::SimulationWorker;
 use crossbeam_channel::{bounded, unbounded};
 use std::path::Path;
 use winit::event_loop::EventLoop;

@@ -1,3 +1,4 @@
+import { Theme } from "theme.slint";
 import { CountryLabelItem, CountryLabelsLayer } from "country_labels.slint";
 import { TopBar } from "top_bar.slint";
 import { MapModesMenu } from "map_modes.slint";
@@ -30,6 +31,9 @@ export component MainWindow inherits Window {
     in-out property <string> currency_symbol: "$";
     in-out property <string> treasury_text: "$0";
     in-out property <string> gdp_text: "$0";
+    in-out property <string> inflation_text: "+0.0%";
+    in-out property <color> inflation_color: Theme.accent_emerald;
+    in-out property <string> central_bank_rate_text: "5.00%";
     in-out property <int> active_map_mode: 0;
     in-out property <bool> map_menu_open: false;
     in-out property <[CountryLabelItem]> country_labels: [];
@@ -43,6 +47,11 @@ export component MainWindow inherits Window {
     in-out property <string> inspected_pop: "0";
     in-out property <string> inspected_employment: "0";
     in-out property <string> inspected_regions: "0";
+    in-out property <string> inspected_cpi: "100.0";
+    in-out property <string> inspected_inflation: "+0.0%";
+    in-out property <color> inspected_inflation_color: Theme.accent_emerald;
+    in-out property <string> inspected_central_bank_rate: "5.00%";
+    in-out property <string> inspected_real_rate: "+0.00%";
 
     in-out property <bool> market_menu_open: false;
     in-out property <bool> market_modal_open: false;
@@ -95,6 +104,7 @@ export component MainWindow inherits Window {
     callback select_research_requested(int);
     callback construction_filter_selected(int);
     callback tech_filter_selected(int);
+    callback adjust_central_bank_rate_requested(float);
 
     CountryLabelsLayer {
         labels: root.country_labels;
@@ -107,6 +117,9 @@ export component MainWindow inherits Window {
         country_name: root.country_name;
         treasury_text: root.treasury_text;
         gdp_text: root.gdp_text;
+        inflation_text: root.inflation_text;
+        inflation_color: root.inflation_color;
+        central_bank_rate_text: root.central_bank_rate_text;
         date_text: root.date_text;
         current_speed: root.current_speed;
         speed_changed(speed_val) => {
@@ -184,9 +197,17 @@ export component MainWindow inherits Window {
         population_text: root.inspected_pop;
         employment_text: root.inspected_employment;
         regions_count_text: root.inspected_regions;
+        cpi_text: root.inspected_cpi;
+        inflation_text: root.inspected_inflation;
+        inflation_color: root.inspected_inflation_color;
+        central_bank_rate_text: root.inspected_central_bank_rate;
+        real_rate_text: root.inspected_real_rate;
         close_clicked => {
             root.country_menu_open = false;
             root.country_menu_closed();
+        }
+        adjust_rate_clicked(delta) => {
+            root.adjust_central_bank_rate_requested(delta);
         }
     }
 

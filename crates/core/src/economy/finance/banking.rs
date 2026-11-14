@@ -51,10 +51,11 @@ impl BankLoan {
         }
     }
 
-    pub fn request_corporate_loan(
+    pub fn request_corporate_loan_with_rate(
         borrower_idx: usize,
         amount: f64,
         country_tag: CountryTag,
+        annual_rate: f64,
         companies: &mut [CompanyState],
         loans: &mut Vec<BankLoan>,
     ) -> bool {
@@ -84,7 +85,7 @@ impl BankLoan {
                     borrower_id,
                     country_tag,
                     lend_amount,
-                    0.08,
+                    annual_rate,
                     36,
                 ));
                 return true;
@@ -105,13 +106,14 @@ impl BankLoan {
                 companies[b_idx].balance -= lend_amount;
                 companies[borrower_idx].balance += lend_amount;
                 let loan_id = loans.len() as u64 + 1;
+                let state_rate = (annual_rate * 0.8).max(0.01);
                 loans.push(Self::new(
                     loan_id,
                     bank_id,
                     borrower_id,
                     country_tag,
                     lend_amount,
-                    0.05,
+                    state_rate,
                     36,
                 ));
                 return true;
@@ -119,5 +121,22 @@ impl BankLoan {
         }
 
         false
+    }
+
+    pub fn request_corporate_loan(
+        borrower_idx: usize,
+        amount: f64,
+        country_tag: CountryTag,
+        companies: &mut [CompanyState],
+        loans: &mut Vec<BankLoan>,
+    ) -> bool {
+        Self::request_corporate_loan_with_rate(
+            borrower_idx,
+            amount,
+            country_tag,
+            0.08,
+            companies,
+            loans,
+        )
     }
 }

@@ -70,6 +70,13 @@ pub struct CountryEconomy {
     pub bailout_policy: BailoutPolicy,
     pub max_subsidy_budget_ratio: f64,
     pub welfare: WelfarePolicy,
+
+    pub central_bank_rate: f64,
+    pub cpi: f64,
+    pub inflation_rate: f64,
+    pub cpi_monthly_history: [f64; 12],
+    pub cpi_history_len: u8,
+    pub cpi_history_cursor: u8,
 }
 
 impl Default for CountryEconomy {
@@ -90,6 +97,12 @@ impl Default for CountryEconomy {
             bailout_policy: BailoutPolicy::StrategicAndState,
             max_subsidy_budget_ratio: 0.05,
             welfare: WelfarePolicy::default(),
+            central_bank_rate: 0.05,
+            cpi: 100.0,
+            inflation_rate: 0.0,
+            cpi_monthly_history: [100.0; 12],
+            cpi_history_len: 0,
+            cpi_history_cursor: 0,
         }
     }
 }

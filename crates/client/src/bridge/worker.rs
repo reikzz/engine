@@ -207,6 +207,12 @@ impl SimulationWorker {
                 ClientCommand::RepayNationalDebt { country, amount } => {
                     let _ = self.world.repay_national_debt(country, amount);
                 }
+                ClientCommand::SetCentralBankRate {
+                    country,
+                    target_rate,
+                } => {
+                    let _ = self.world.set_central_bank_rate(country, target_rate);
+                }
             }
         }
     }
@@ -327,6 +333,10 @@ impl SimulationWorker {
                     corporate_tax: c.economy.corporate_tax,
                     income_tax: c.economy.income_tax,
                     tariff_rate: c.economy.tariff_rate,
+                    central_bank_rate: c.economy.central_bank_rate,
+                    cpi: c.economy.cpi,
+                    inflation_rate: c.economy.inflation_rate,
+                    real_interest_rate: c.economy.central_bank_rate - c.economy.inflation_rate,
                 },
             );
         }

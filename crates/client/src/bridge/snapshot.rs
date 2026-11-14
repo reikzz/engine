@@ -13,6 +13,10 @@ pub struct CountrySnapshot {
     pub corporate_tax: f64,
     pub income_tax: f64,
     pub tariff_rate: f64,
+    pub central_bank_rate: f64,
+    pub cpi: f64,
+    pub inflation_rate: f64,
+    pub real_interest_rate: f64,
 }
 
 #[derive(Debug, Clone, Default)]

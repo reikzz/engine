@@ -51,4 +51,8 @@ pub enum ClientCommand {
         country: CountryTag,
         amount: f64,
     },
+    SetCentralBankRate {
+        country: CountryTag,
+        target_rate: f64,
+    },
 }
